@@ -1,7 +1,24 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|c:\\users\\julia\\desktop\\code\\han\\adp_2024\\adp_2024_test\\stack\\stackfunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|solutionrelative:adp_2024_test\\stack\\stackfunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|c:\\users\\julia\\desktop\\code\\han\\adp_2024\\adp_2024_test\\dynamicarray\\dynamicarrayfunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|solutionrelative:adp_2024_test\\dynamicarray\\dynamicarrayfunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD6382FE-C2D5-483B-9924-AFBAC42CB136}|ADP_2024\\ADP_2024.csproj|c:\\users\\julia\\desktop\\code\\han\\adp_2024\\adp_2024\\stack\\astack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD6382FE-C2D5-483B-9924-AFBAC42CB136}|ADP_2024\\ADP_2024.csproj|solutionrelative:adp_2024\\stack\\astack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD6382FE-C2D5-483B-9924-AFBAC42CB136}|ADP_2024\\ADP_2024.csproj|c:\\users\\julia\\desktop\\code\\han\\adp_2024\\adp_2024\\dynamicarray\\dynamicarray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD6382FE-C2D5-483B-9924-AFBAC42CB136}|ADP_2024\\ADP_2024.csproj|solutionrelative:adp_2024\\dynamicarray\\dynamicarray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 203,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +43,64 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StackFunctionalTests.cs",
+              "DocumentMoniker": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024_Test\\Stack\\StackFunctionalTests.cs",
+              "RelativeDocumentMoniker": "ADP_2024_Test\\Stack\\StackFunctionalTests.cs",
+              "ToolTip": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024_Test\\Stack\\StackFunctionalTests.cs",
+              "RelativeToolTip": "ADP_2024_Test\\Stack\\StackFunctionalTests.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAA5wEwAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T20:21:26.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AStack.cs",
+              "DocumentMoniker": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024\\Stack\\AStack.cs",
+              "RelativeDocumentMoniker": "ADP_2024\\Stack\\AStack.cs",
+              "ToolTip": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024\\Stack\\AStack.cs",
+              "RelativeToolTip": "ADP_2024\\Stack\\AStack.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T19:48:57.962Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 203,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DynamicArray.cs",
+              "DocumentMoniker": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024\\DynamicArray\\DynamicArray.cs",
+              "RelativeDocumentMoniker": "ADP_2024\\DynamicArray\\DynamicArray.cs",
+              "ToolTip": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024\\DynamicArray\\DynamicArray.cs",
+              "RelativeToolTip": "ADP_2024\\DynamicArray\\DynamicArray.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T19:52:08.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DynamicArrayFunctionalTests.cs",
+              "DocumentMoniker": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024_Test\\DynamicArray\\DynamicArrayFunctionalTests.cs",
+              "RelativeDocumentMoniker": "ADP_2024_Test\\DynamicArray\\DynamicArrayFunctionalTests.cs",
+              "ToolTip": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024_Test\\DynamicArray\\DynamicArrayFunctionalTests.cs",
+              "RelativeToolTip": "ADP_2024_Test\\DynamicArray\\DynamicArrayFunctionalTests.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAkwFIAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T20:24:09.398Z",
+              "EditorCaption": ""
             }
           ]
         }
