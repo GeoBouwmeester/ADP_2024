@@ -5,6 +5,7 @@ namespace ADP_2024;
 
 public class DatasetReader
 {
+    private const string DATASET_PATH = "../../../../ADP_2024/resources/dataset_sorteren.json";
     private Datasets Datasets { get; init; }
 
     public int[] LijstAflopend2 => Datasets.lijst_aflopend_2;
@@ -28,7 +29,7 @@ public class DatasetReader
 
     private static Datasets Read()
     {
-        using StreamReader r = new("../../../../ADP_Project/resources/dataset_sorteren.json");
+        using StreamReader r = new(DATASET_PATH);
 
         string json = r.ReadToEnd();
 

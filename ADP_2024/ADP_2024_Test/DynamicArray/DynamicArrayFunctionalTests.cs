@@ -1,4 +1,8 @@
-﻿namespace ADP_2024_Test.DynamicArray;
+﻿using ADP_2024;
+using ADP_2024.DynamicArray;
+using ADP_2024.Models;
+
+namespace ADP_2024_Test.DynamicArray;
 
 [TestClass]
 public sealed class DynamicArrayFunctionalTests
