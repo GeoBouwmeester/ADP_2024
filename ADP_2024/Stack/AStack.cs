@@ -3,7 +3,7 @@
 public class AStack<T>
 {
     private T[] _items;
-    private const int DefaultCapacity = 10;
+    private const int DefaultCapacity = 4;
     private int _maxSize;
     private int _top;
 

@@ -35,7 +35,250 @@ public sealed class DynamicArrayFunctionalTests
     }
 
     [TestMethod]
-    public void TestLijstWillekeurig10000()
+    public void TestLijstOplopend2()
+    {
+        // Arrange
+        var dynamicArray = new DynamicArray<int>();
+
+        // Act
+        foreach (var value in reader.LijstOplopend2)
+        {
+            dynamicArray.Add(value);
+        }
+
+        var contains = dynamicArray.Contains(-100324);
+
+        // Assert
+        Assert.AreEqual(2, dynamicArray.Count);
+        Assert.IsTrue(contains);
+    }
+
+    [TestMethod]
+    public void TestLijstFloat8001()
+    {
+        // Arrange
+        var dynamicArray = new DynamicArray<float>();
+
+        // Act
+        foreach (var value in reader.LijstFloat8001)
+        {
+            dynamicArray.Add(value);
+        }
+
+        var newValue = 12.34F;
+
+        dynamicArray.Add(newValue);
+
+        var contains = dynamicArray.Contains(11312312312312.324f);
+
+        var index = dynamicArray.IndexOf(newValue);
+
+        var first = dynamicArray.Get(index);
+
+        // Assert
+        Assert.AreEqual(8002, dynamicArray.Count);
+        Assert.IsTrue(contains);
+        Assert.AreEqual(8001, index);
+        Assert.AreEqual(newValue, first);
+    }
+
+    [TestMethod]
+    public void TestLijstGesorteerdAflopend3()
+    {
+        // Arrange
+        var dynamicArray = new DynamicArray<int>();
+
+        // Act
+        foreach (var value in reader.LijstGesorteerdAflopend3)
+        {
+            dynamicArray.Add(value);
+        }
+
+        var newValue = 12;
+
+        dynamicArray.Add(newValue);
+
+        var contains = dynamicArray.Contains(newValue);
+
+        var index = dynamicArray.IndexOf(newValue);
+
+        var first = dynamicArray.Get(index);
+
+        // Assert
+        Assert.AreEqual(4, dynamicArray.Count);
+        Assert.IsTrue(contains);
+        Assert.AreEqual(3, index);
+        Assert.AreEqual(newValue, first);
+    }
+
+    [TestMethod]
+    public void TestLijstGesorteerdOplopend3()
+    {
+        // Arrange
+        var dynamicArray = new DynamicArray<int>();
+
+        // Act
+        foreach (var value in reader.LijstGesorteerdOplopend3)
+        {
+            dynamicArray.Add(value);
+        }
+
+        var newValue = 12;
+
+        dynamicArray.Add(newValue);
+
+        var contains = dynamicArray.Contains(newValue);
+
+        var index = dynamicArray.IndexOf(newValue);
+
+        var first = dynamicArray.Get(index);
+
+        // Assert
+        Assert.AreEqual(4, dynamicArray.Count);
+        Assert.IsTrue(contains);
+        Assert.AreEqual(3, index);
+        Assert.AreEqual(newValue, first);
+    }
+
+    [TestMethod]
+    public void TestLijstHerhaald1000()
+    {
+        // Arrange
+        var dynamicArray = new DynamicArray<int>();
+
+        // Act
+        foreach (var value in reader.LijstHerhaald1000)
+        {
+            dynamicArray.Add(value);
+        }
+
+        var newValue = 12;
+
+        dynamicArray.Add(newValue);
+
+        var contains = dynamicArray.Contains(newValue);
+
+        var index = dynamicArray.IndexOf(newValue);
+
+        var first = dynamicArray.Get(index);
+
+        // Assert
+        Assert.AreEqual(10001, dynamicArray.Count);
+        Assert.IsTrue(contains);
+        Assert.AreEqual(10000, index);
+        Assert.AreEqual(newValue, first);
+    }
+
+    [TestMethod]
+    public void TestLijstLeeg0()
+    {
+        // Arrange
+        var dynamicArray = new DynamicArray<object>();
+
+        // Act
+        foreach (var value in reader.LijstLeeg0)
+        {
+            dynamicArray.Add(value);
+        }
+
+        var newValue = 12;
+
+        dynamicArray.Add(newValue);
+
+        var contains = dynamicArray.Contains(newValue);
+
+        var index = dynamicArray.IndexOf(newValue);
+
+        var first = dynamicArray.Get(index);
+
+        // Assert
+        Assert.AreEqual(1, dynamicArray.Count);
+        Assert.IsTrue(contains);
+        Assert.AreEqual(0, index);
+        Assert.AreEqual(newValue, first);
+    }
+
+    [TestMethod]
+    public void TestLijstNull1()
+    {
+        // Arrange
+        var dynamicArray = new DynamicArray<object>();
+
+        // Act
+        foreach (var value in reader.LijstNull1)
+        {
+            dynamicArray.Add(value);
+        }
+
+        var newValue = "string";
+
+        dynamicArray.Add(newValue);
+
+        var contains = dynamicArray.Contains(newValue);
+
+        var index = dynamicArray.IndexOf(newValue);
+
+        var first = dynamicArray.Get(index);
+
+        // Assert
+        Assert.AreEqual(2, dynamicArray.Count);
+        Assert.IsTrue(contains);
+        Assert.AreEqual(1, index);
+        Assert.AreEqual(newValue, first);
+    }
+
+    [TestMethod]
+    public void TestLijstNull3()
+    {
+        // Arrange
+        var dynamicArray = new DynamicArray<object>();
+
+        // Act
+        foreach (var value in reader.LijstNull3)
+        {
+            dynamicArray.Add(value);
+        }
+
+        var newValue = "string";
+
+        dynamicArray.Add(newValue);
+
+        var contains = dynamicArray.Contains(newValue);
+
+        var index = dynamicArray.IndexOf(newValue);
+
+        var first = dynamicArray.Get(index);
+
+        // Assert
+        Assert.AreEqual(4, dynamicArray.Count);
+        Assert.IsTrue(contains);
+        Assert.AreEqual(3, index);
+        Assert.AreEqual(newValue, first);
+    }
+
+    [TestMethod]
+    public void TestLijstOnsorteerbaar3()
+    {
+        // Arrange
+        var dynamicArray = new DynamicArray<object>();
+
+        // Act
+        foreach (var value in reader.LijstOnsorteerbaar3)
+        {
+            dynamicArray.Add(value);
+        }
+
+        dynamicArray.Remove("string");
+
+        var contains = dynamicArray.Contains("string");
+
+        // Assert
+        Assert.AreEqual(2, dynamicArray.Count);
+        Assert.IsFalse(contains);
+    }
+
+    [TestMethod]
+    public void TestLijstOplopend10000()
     {
         // Arrange
         var dynamicArray = new DynamicArray<int>();
@@ -60,24 +303,57 @@ public sealed class DynamicArrayFunctionalTests
     }
 
     [TestMethod]
-    public void TestLijstOnsorteerbaar3()
+    public void TestLijstWillekeurig10000()
     {
         // Arrange
-        var dynamicArray = new DynamicArray<object>();
+        var dynamicArray = new DynamicArray<int>();
 
         // Act
-        foreach (var value in reader.LijstOnsorteerbaar3)
+        foreach (var value in reader.LijstWillekeurig10000)
         {
             dynamicArray.Add(value);
         }
 
-        dynamicArray.Remove("string");
+        for (int i = 0; i < reader.LijstWillekeurig10000.Length; i++)
+        {
+            dynamicArray.Remove(0);
+        }
 
-        var contains = dynamicArray.Contains("string");
+        var contains = dynamicArray.Contains(5247);
 
         // Assert
-        Assert.AreEqual(2, dynamicArray.Count);
+        Assert.ThrowsException<ArgumentOutOfRangeException>(() => dynamicArray.Get(0));
+        Assert.AreEqual(0, dynamicArray.Count);
         Assert.IsFalse(contains);
+    }
+
+    [TestMethod]
+    public void TestLijstWillekeurig3()
+    {
+        // Arrange
+        var dynamicArray = new DynamicArray<int>();
+
+        // Act
+        foreach (var value in reader.LijstWillekeurig3)
+        {
+            dynamicArray.Add(value);
+        }
+
+        var newValue = 123456789;
+
+        dynamicArray.Add(newValue);
+
+        var contains = dynamicArray.Contains(newValue);
+
+        var index = dynamicArray.IndexOf(newValue);
+
+        var first = dynamicArray.Get(index);
+
+        // Assert
+        Assert.AreEqual(4, dynamicArray.Count);
+        Assert.IsTrue(contains);
+        Assert.AreEqual(3, index);
+        Assert.AreEqual(newValue, first);
     }
 
     [TestMethod]

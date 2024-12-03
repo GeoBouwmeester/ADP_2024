@@ -32,26 +32,225 @@ public sealed class StackFunctionalTests
     }
 
     [TestMethod]
-    public void TestLijstWillekeurig10000()
+    public void TestLijstOplopend2()
     {
         // Arrange
         var stack = new AStack<int>();
 
         // Act
-        foreach (var value in reader.LijstOplopend10000)
+        foreach (var value in reader.LijstOplopend2)
         {
             stack.Push(value);
         }
 
-        for (int i = 0; i < reader.LijstOplopend10000.Length; i++)
-        {
-            stack.Pop();
-        }
+        stack.Pop();
 
+        var newValue = 123;
+
+        stack.Push(newValue);
+
+        var first = stack.TopValue();
+
+        var popped = stack.Pop();
 
         // Assert
-        Assert.ThrowsException<InvalidOperationException>(() => stack.TopValue());
+        Assert.AreEqual(1, stack.Size());
+        Assert.AreEqual(newValue, first);
+        Assert.AreEqual(newValue, popped);
+    }
+
+    [TestMethod]
+    public void TestLijstFloat8001()
+    {
+        // Arrange
+        var stack = new AStack<float>();
+
+        // Act
+        foreach (var value in reader.LijstFloat8001)
+        {
+            stack.Push(value);
+        }
+
+        stack.Pop();
+
+        var newValue = 123.456F;
+
+        stack.Push(newValue);
+
+        var first = stack.TopValue();
+
+        var popped = stack.Pop();
+
+        // Assert
+        Assert.AreEqual(8000, stack.Size());
+        Assert.AreEqual(newValue, first);
+        Assert.AreEqual(newValue, popped);
+    }
+
+    [TestMethod]
+    public void TestLijstGesorteerdAflopend3()
+    {
+        // Arrange
+        var stack = new AStack<int>();
+
+        // Act
+        foreach (var value in reader.LijstGesorteerdAflopend3)
+        {
+            stack.Push(value);
+        }
+
+        stack.Pop();
+
+        var newValue = 123456;
+
+        stack.Push(newValue);
+
+        var first = stack.TopValue();
+
+        var popped = stack.Pop();
+
+        // Assert
+        Assert.AreEqual(2, stack.Size());
+        Assert.AreEqual(newValue, first);
+        Assert.AreEqual(newValue, popped);
+    }
+
+    [TestMethod]
+    public void TestLijstGesorteerdOplopend3()
+    {
+        // Arrange
+        var stack = new AStack<int>();
+
+        // Act
+        foreach (var value in reader.LijstGesorteerdOplopend3)
+        {
+            stack.Push(value);
+        }
+
+        stack.Pop();
+
+        var newValue = 2;
+
+        stack.Push(newValue);
+
+        var first = stack.TopValue();
+
+        var popped = stack.Pop();
+
+        // Assert
+        Assert.AreEqual(2, stack.Size());
+        Assert.AreEqual(newValue, first);
+        Assert.AreEqual(newValue, popped);
+    }
+
+    [TestMethod]
+    public void TestLijstHerhaald1000()
+    {
+        // Arrange
+        var stack = new AStack<int>();
+
+        // Act
+        foreach (var value in reader.LijstHerhaald1000)
+        {
+            stack.Push(value);
+        }
+
+        stack.Pop();
+
+        var newValue = 9999;
+
+        stack.Push(newValue);
+
+        var first = stack.TopValue();
+
+        var popped = stack.Pop();
+
+        // Assert
+        Assert.AreEqual(9999, stack.Size());
+        Assert.AreEqual(newValue, first);
+        Assert.AreEqual(newValue, popped);
+    }
+
+    [TestMethod]
+    public void TestLijstLeeg0()
+    {
+        // Arrange
+        var stack = new AStack<object>();
+
+        // Act
+        foreach (var value in reader.LijstLeeg0)
+        {
+            stack.Push(value);
+        }
+
+        var newValue = 999;
+
+        stack.Push(newValue);
+
+        var first = stack.TopValue();
+
+        var popped = stack.Pop();
+
+        // Assert
         Assert.AreEqual(0, stack.Size());
+        Assert.AreEqual(newValue, first);
+        Assert.AreEqual(newValue, popped);
+    }
+
+    [TestMethod]
+    public void TestLijstNull1()
+    {
+        // Arrange
+        var stack = new AStack<object>();
+
+        // Act
+        foreach (var value in reader.LijstNull1)
+        {
+            stack.Push(value);
+        }
+
+        stack.Pop();
+
+        var newValue = 12345;
+
+        stack.Push(newValue);
+
+        var first = stack.TopValue();
+
+        var popped = stack.Pop();
+
+        // Assert
+        Assert.AreEqual(0, stack.Size());
+        Assert.AreEqual(newValue, first);
+        Assert.AreEqual(newValue, popped);
+    }
+
+    [TestMethod]
+    public void TestLijstNull3()
+    {
+        // Arrange
+        var stack = new AStack<object>();
+
+        // Act
+        foreach (var value in reader.LijstNull3)
+        {
+            stack.Push(value);
+        }
+
+        stack.Pop();
+
+        var newValue = 12345;
+
+        stack.Push(newValue);
+
+        var first = stack.TopValue();
+
+        var popped = stack.Pop();
+
+        // Assert
+        Assert.AreEqual(2, stack.Size());
+        Assert.AreEqual(newValue, first);
+        Assert.AreEqual(newValue, popped);
     }
 
     [TestMethod]
@@ -67,10 +266,91 @@ public sealed class StackFunctionalTests
         }
 
         stack.Pop();
+        stack.Pop();
+
+        Int64 expected = 1;
+
+        // Assert
+        Assert.AreEqual(1, stack.Size());
+        Assert.AreEqual(expected, stack.TopValue());
+    }
+
+    [TestMethod]
+    public void TestLijstOplopend10000()
+    {
+        // Arrange
+        var stack = new AStack<int>();
+
+        // Act
+        foreach (var value in reader.LijstOplopend10000)
+        {
+            stack.Push(value);
+        }
+
+        stack.Pop();
+
+        var newValue = 12345;
+
+        stack.Push(newValue);
+
+        var first = stack.TopValue();
+
+        var popped = stack.Pop();
+
+        // Assert
+        Assert.AreEqual(9998, stack.Size());
+        Assert.AreEqual(newValue, first);
+        Assert.AreEqual(newValue, popped);
+    }
+
+    [TestMethod]
+    public void TestLijstWillekeurig10000()
+    {
+        // Arrange
+        var stack = new AStack<int>();
+
+        // Act
+        foreach (var value in reader.LijstWillekeurig10000)
+        {
+            stack.Push(value);
+        }
+
+        for (int i = 0; i < reader.LijstWillekeurig10000.Length; i++)
+        {
+            stack.Pop();
+        }
+
+        // Assert
+        Assert.ThrowsException<InvalidOperationException>(() => stack.TopValue());
+        Assert.AreEqual(0, stack.Size());
+    }
+
+    [TestMethod]
+    public void TestLijstWillekeurig3()
+    {
+        // Arrange
+        var stack = new AStack<int>();
+
+        // Act
+        foreach (var value in reader.LijstWillekeurig3)
+        {
+            stack.Push(value);
+        }
+
+        stack.Pop();
+
+        var newValue = 12345;
+
+        stack.Push(newValue);
+
+        var first = stack.TopValue();
+
+        var popped = stack.Pop();
 
         // Assert
         Assert.AreEqual(2, stack.Size());
-        Assert.AreEqual(1.0, stack.TopValue());
+        Assert.AreEqual(newValue, first);
+        Assert.AreEqual(newValue, popped);
     }
 
     [TestMethod]
