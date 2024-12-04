@@ -1,22 +1,12 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿namespace ADP_2024.Models;
 
-namespace ADP_2024.Models;
-
-public class Pizza(string pizzaName, int numberOfSlices)
+public class Pizza(string pizzaName, int numberOfSlices) : IComparable<Pizza>
 {
     public string PizzaName => pizzaName;
     public int NumberOfSlices => numberOfSlices;
-}
 
-public class PizzaComparer : IEqualityComparer<Pizza>
-{
-    public bool Equals(Pizza? x, Pizza? y)
+    public int CompareTo(Pizza? other)
     {
-        return x?.PizzaName == y?.PizzaName && x?.NumberOfSlices == y?.NumberOfSlices;
-    }
-
-    public int GetHashCode([DisallowNull] Pizza obj)
-    {
-        return obj.PizzaName.GetHashCode() ^ obj.NumberOfSlices.GetHashCode();
+        return PizzaName == other?.PizzaName && NumberOfSlices == other?.NumberOfSlices ? 0 : NumberOfSlices > other?.NumberOfSlices ? 1 : -1;
     }
 }
