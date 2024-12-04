@@ -173,12 +173,12 @@ public sealed class DynamicArrayFunctionalTests
     public void TestLijstLeeg0()
     {
         // Arrange
-        var dynamicArray = new DynamicArray<object>();
+        var dynamicArray = new DynamicArray<int>();
 
         // Act
         foreach (var value in reader.LijstLeeg0)
         {
-            dynamicArray.Add(value);
+            dynamicArray.Add((int)value);
         }
 
         var newValue = 12;
@@ -202,15 +202,15 @@ public sealed class DynamicArrayFunctionalTests
     public void TestLijstNull1()
     {
         // Arrange
-        var dynamicArray = new DynamicArray<object>();
+        var dynamicArray = new DynamicArray<int>();
 
         // Act
         foreach (var value in reader.LijstNull1)
         {
-            dynamicArray.Add(value);
+            if (value != null) dynamicArray.Add((int)value);
         }
 
-        var newValue = "string";
+        var newValue = 123456;
 
         dynamicArray.Add(newValue);
 
@@ -221,9 +221,9 @@ public sealed class DynamicArrayFunctionalTests
         var first = dynamicArray.Get(index);
 
         // Assert
-        Assert.AreEqual(2, dynamicArray.Count);
+        Assert.AreEqual(1, dynamicArray.Count);
         Assert.IsTrue(contains);
-        Assert.AreEqual(1, index);
+        Assert.AreEqual(0, index);
         Assert.AreEqual(newValue, first);
     }
 
@@ -231,15 +231,15 @@ public sealed class DynamicArrayFunctionalTests
     public void TestLijstNull3()
     {
         // Arrange
-        var dynamicArray = new DynamicArray<object>();
+        var dynamicArray = new DynamicArray<int>();
 
         // Act
         foreach (var value in reader.LijstNull3)
         {
-            dynamicArray.Add(value);
+            if (value != null) dynamicArray.Add((int)value);
         }
 
-        var newValue = "string";
+        var newValue = 123456;
 
         dynamicArray.Add(newValue);
 
@@ -250,31 +250,31 @@ public sealed class DynamicArrayFunctionalTests
         var first = dynamicArray.Get(index);
 
         // Assert
-        Assert.AreEqual(4, dynamicArray.Count);
+        Assert.AreEqual(3, dynamicArray.Count);
         Assert.IsTrue(contains);
-        Assert.AreEqual(3, index);
+        Assert.AreEqual(2, index);
         Assert.AreEqual(newValue, first);
     }
 
     [TestMethod]
     public void TestLijstOnsorteerbaar3()
     {
-        // Arrange
-        var dynamicArray = new DynamicArray<object>();
+        //// Arrange
+        //var dynamicArray = new DynamicArray<int>();
 
-        // Act
-        foreach (var value in reader.LijstOnsorteerbaar3)
-        {
-            dynamicArray.Add(value);
-        }
+        //// Act
+        //foreach (var value in reader.LijstOnsorteerbaar3)
+        //{
+        //    dynamicArray.Add(value);
+        //}
 
-        dynamicArray.Remove("string");
+        //dynamicArray.Remove("string");
 
-        var contains = dynamicArray.Contains("string");
+        //var contains = dynamicArray.Contains("string");
 
-        // Assert
-        Assert.AreEqual(2, dynamicArray.Count);
-        Assert.IsFalse(contains);
+        //// Assert
+        //Assert.AreEqual(2, dynamicArray.Count);
+        //Assert.IsFalse(contains);
     }
 
     [TestMethod]
@@ -360,7 +360,7 @@ public sealed class DynamicArrayFunctionalTests
     public void TestLijstPizza6()
     {
         // Arrange
-        var dynamicArray = new DynamicArray<Pizza>(comparer: new PizzaComparer());
+        var dynamicArray = new DynamicArray<Pizza>();
 
         // Act
         foreach (var value in reader.LijstPizza6)

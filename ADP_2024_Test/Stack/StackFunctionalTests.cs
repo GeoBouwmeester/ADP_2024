@@ -175,12 +175,12 @@ public sealed class StackFunctionalTests
     public void TestLijstLeeg0()
     {
         // Arrange
-        var stack = new AStack<object>();
+        var stack = new AStack<int>();
 
         // Act
         foreach (var value in reader.LijstLeeg0)
         {
-            stack.Push(value);
+            if (value != null) stack.Push((int)value);
         }
 
         var newValue = 999;
@@ -201,15 +201,13 @@ public sealed class StackFunctionalTests
     public void TestLijstNull1()
     {
         // Arrange
-        var stack = new AStack<object>();
+        var stack = new AStack<int>();
 
         // Act
         foreach (var value in reader.LijstNull1)
         {
-            stack.Push(value);
+            if (value != null) stack.Push((int)value);
         }
-
-        stack.Pop();
 
         var newValue = 12345;
 
@@ -229,12 +227,12 @@ public sealed class StackFunctionalTests
     public void TestLijstNull3()
     {
         // Arrange
-        var stack = new AStack<object>();
+        var stack = new AStack<int>();
 
         // Act
         foreach (var value in reader.LijstNull3)
         {
-            stack.Push(value);
+            if (value != null) stack.Push((int)value);
         }
 
         stack.Pop();
@@ -248,7 +246,7 @@ public sealed class StackFunctionalTests
         var popped = stack.Pop();
 
         // Assert
-        Assert.AreEqual(2, stack.Size());
+        Assert.AreEqual(1, stack.Size());
         Assert.AreEqual(newValue, first);
         Assert.AreEqual(newValue, popped);
     }

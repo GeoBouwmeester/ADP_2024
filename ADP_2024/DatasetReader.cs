@@ -14,9 +14,9 @@ public class DatasetReader
     public int[] LijstGesorteerdAflopend3 => Datasets.lijst_gesorteerd_aflopend_3;
     public int[] LijstGesorteerdOplopend3 => Datasets.lijst_gesorteerd_oplopend_3;
     public int[] LijstHerhaald1000 => Datasets.lijst_herhaald_1000;
-    public object[] LijstLeeg0 => Datasets.lijst_leeg_0;
-    public object[] LijstNull1 => Datasets.lijst_null_1;
-    public object[] LijstNull3 => Datasets.lijst_null_3;
+    public int?[] LijstLeeg0 => Datasets.lijst_leeg_0;
+    public int?[] LijstNull1 => Datasets.lijst_null_1;
+    public int?[] LijstNull3 => Datasets.lijst_null_3;
     public object[] LijstOnsorteerbaar3 => Datasets.lijst_onsorteerbaar_3;
     public int[] LijstOplopend10000 => Datasets.lijst_oplopend_10000;
     public int[] LijstWillekeurig10000 => Datasets.lijst_willekeurig_10000;

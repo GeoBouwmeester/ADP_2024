@@ -1,19 +1,17 @@
 ﻿namespace ADP_2024.DynamicArray;
 
-public class DynamicArray<T>
+public class DynamicArray<T> where T : IComparable<T>
 {
     private T[] _items;
     private const int DefaultCapacity = 4;
     private int _maxSize;
     private int _size;
-    private readonly IEqualityComparer<T> _comparer;
 
-    public DynamicArray(int capacity = DefaultCapacity, IEqualityComparer<T>? comparer = null)
+    public DynamicArray(int capacity = DefaultCapacity)
     {
         _maxSize = capacity;
         _items = new T[_maxSize];
         _size = 0;
-        _comparer = comparer ?? EqualityComparer<T>.Default;
     }
 
     public int Count => _size;
@@ -97,7 +95,7 @@ public class DynamicArray<T>
 
         if (index != -1)
         {
-            // Reuse the `RemoveAt` method
+            // Reuse the `Remove` method
             Remove(index);
 
             // Successfully removed the element
@@ -114,7 +112,7 @@ public class DynamicArray<T>
         {
             var x = _items[i];
 
-            if (_comparer.Equals(x, item))
+            if (x.CompareTo(item) == 0)
             {
                 return true;
             }
@@ -126,7 +124,7 @@ public class DynamicArray<T>
     {
         for (int i = 0; i < _size; i++)
         {
-            if (_comparer.Equals(_items[i], item))
+            if (_items[i].CompareTo(item) == 0)
             {
                 return i;
             }
