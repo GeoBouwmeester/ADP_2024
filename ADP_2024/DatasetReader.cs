@@ -11,6 +11,7 @@ public class DatasetReader
     public int[] LijstAflopend2 => Datasets.lijst_aflopend_2;
     public object[] LijstOnsorteerbaar3 => Datasets.lijst_onsorteerbaar_3;
     public int[] LijstWillekeurig10000 => Datasets.lijst_willekeurig_10000;
+    public int[] LijstWillekeurig3 => Datasets.lijst_willekeurig_3;
     public int[] LijstOplopend10000 => Datasets.lijst_oplopend_10000;
     public Pizza[] LijstPizza6 =>
     [

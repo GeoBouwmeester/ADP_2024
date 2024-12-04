@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 
 namespace ADP_2024.DoublyLinkedList
 {
@@ -15,7 +8,6 @@ namespace ADP_2024.DoublyLinkedList
 		private Node<T> tail;
 
 		public int Length { get; private set; }
-
 
 		public IEnumerator<Node<T>> GetEnumerator()
 		{
@@ -58,7 +50,39 @@ namespace ADP_2024.DoublyLinkedList
 			Length++;
 		}
 
-		public bool Contains(T value)
+        public T Get(int index)
+        {
+            if (index < 0 || index >= Length)
+            {
+                throw new IndexOutOfRangeException("Index is out of range");
+            }
+
+            Node<T> current = head;
+            for (int i = 0; i < index; i++)
+            {
+                current = current.Next;
+            }
+
+            return current.Data;
+        }
+
+        public void Set(int index, T element)
+        {
+            if (index < 0 || index >= Length)
+            {
+                throw new IndexOutOfRangeException("Index is out of range");
+            }
+
+            Node<T> current = head;
+            for (int i = 0; i < index; i++)
+            {
+                current = current.Next;
+            }
+
+            current.Data = element;
+        }
+
+        public bool Contains(T value)
 		{
 			Node<T> current = head;
 			while (current != null)
@@ -123,5 +147,5 @@ namespace ADP_2024.DoublyLinkedList
 			return false;
 		}
 
-	}
+    }
 }

@@ -19,18 +19,18 @@ namespace ADP_2024.Deque
 			size = 0;
 		}
 
-		public void InsertLeft(T item)
+        public void InsertLeft(T item)
 		{
 			Node<T> newNode = new Node<T>(item);
 
 			if (head == null)
-			{
-				head = newNode;
+            {
+                head = newNode;
 				tail = newNode;
 			}
 			else
-			{
-				newNode.Next = head;
+            {
+                newNode.Next = head;
 				head.Previous = newNode;
 				head = newNode;
 			}
@@ -38,18 +38,18 @@ namespace ADP_2024.Deque
 			size++;
 		}
 
-		public void InsertRight(T item)
+        public void InsertRight(T item)
 		{
 			Node<T> newNode = new Node<T>(item);
 
 			if (tail == null)
-			{
-				head = newNode;
+            {
+                head = newNode;
 				tail = newNode;
 			}
 			else
-			{
-				newNode.Previous = tail;
+            {
+                newNode.Previous = tail;
 				tail.Next = newNode;
 				tail = newNode;
 			}
@@ -57,22 +57,23 @@ namespace ADP_2024.Deque
 			size++;
 		}
 
-		public T DeleteLeft()
+        public T DeleteLeft()
 		{
-			if (head == null)
+			if (size == null)
 			{
 				throw new InvalidOperationException("Deque is empty");
 			}
 
 			T data = head.Data;
-			head = head.Next;
 
-			if (head == null)
+			if (size == 1)
 			{
+				head = null;
 				tail = null;
 			}
 			else
 			{
+				head = head.Next;
 				head.Previous = null;
 			}
 
@@ -82,20 +83,21 @@ namespace ADP_2024.Deque
 
 		public T DeleteRight()
 		{
-			if (tail == null)
+			if (size == null)
 			{
 				throw new InvalidOperationException("Deque is empty");
 			}
 
 			T data = tail.Data;
-			tail = tail.Previous;
 
-			if (tail == null)
+			if (size == 1)
 			{
 				head = null;
+				tail = null;
 			}
 			else
 			{
+				tail = tail.Previous;
 				tail.Next = null;
 			}
 			size--;

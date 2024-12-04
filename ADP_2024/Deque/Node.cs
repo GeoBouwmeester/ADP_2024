@@ -15,7 +15,9 @@ namespace ADP_2024.Deque
 		public Node(T data)
 		{
 			Data = data;
-		}
+            Next = null;
+            Previous = null;
+        }
 	}
 }
 

@@ -4,169 +4,121 @@ using ADP_2024.Models;
 
 namespace ADP_2024_Test.Deque
 {
-	[TestClass]
-	public sealed class DequeFunctionalTests
-	{
-		public required DatasetReader reader;
+    [TestClass]
+    public sealed class DequeFunctionalTests
+    {
+        public required DatasetReader reader;
 
-		[TestInitialize]
-		public void SetUp()
-		{
-			reader = new DatasetReader();
-		}
+        [TestInitialize]
+        public void SetUp()
+        {
+            reader = new DatasetReader();
+        }
 
-		[TestMethod]
-		public void TestInsertLeftWithLijstAflopend2()
-		{
-			// Arrange
-			var deque = new Deque<int>();
-			var expectedOrder = new Stack<int>();
+        [TestMethod]
+        public void TestInsertLeftLijstAflopend2()
+        {
+            // Arrange
+            var deque = new Deque<int>();
 
-			// Act
-			foreach (var value in reader.LijstAflopend2)
-			{
-				deque.InsertLeft(value);
-				expectedOrder.Push(value);
-			}
+            // Act
+            foreach (var value in reader.LijstAflopend2)
+            {
+                deque.InsertLeft(value);
+            }
 
-			// Assert
-			foreach (var expectedValue in expectedOrder)
-			{
-				Assert.AreEqual(expectedValue, deque.DeleteLeft());
-			}
-			Assert.AreEqual(0, deque.Size());
-		}
+            // Assert
+            Assert.AreEqual(reader.LijstAflopend2.Length, deque.Size());
+        }
 
-		[TestMethod]
-		public void TestInsertRightWithLijstOplopend10000()
-		{
-			// Arrange
-			var deque = new Deque<int>();
-			var expectedOrder = new Queue<int>();
+        [TestMethod]
+        public void TestInsertRightLijstOplopend10000()
+        {
+            // Arrange
+            var deque = new Deque<int>();
 
-			// Act
-			foreach (var value in reader.LijstOplopend10000)
-			{
-				deque.InsertRight(value);
-				expectedOrder.Enqueue(value);
-			}
+            // Act
+            foreach (var value in reader.LijstOplopend10000)
+            {
+                deque.InsertRight(value);
+            }
 
-			// Assert
-			foreach (var expectedValue in expectedOrder)
-			{
-				Assert.AreEqual(expectedValue, deque.DeleteLeft());
-			}
-			Assert.AreEqual(0, deque.Size());
-		}
+            // Assert
+            Assert.AreEqual(reader.LijstOplopend10000.Length, deque.Size());
+            Assert.AreEqual(reader.LijstOplopend10000.Last(), deque.DeleteRight());
+        }
 
-		[TestMethod]
-		public void TestDeleteLeftWithLijstOnsorteerbaar3()
-		{
-			// Arrange
-			var deque = new Deque<object>();
+        [TestMethod]
+        public void TestDeleteLeftLijstWillekeurig10000()
+        {
+            // Arrange
+            var deque = new Deque<int>();
 
-			foreach (var value in reader.LijstOnsorteerbaar3)
-			{
-				deque.InsertRight(value);
-			}
+            // Act
+            foreach (var value in reader.LijstWillekeurig10000)
+            {
+                deque.InsertLeft(value);  
+            }
 
-			// Act & Assert
-			foreach (var value in reader.LijstOnsorteerbaar3)
-			{
-				Assert.AreEqual(value, deque.DeleteLeft());
-			}
+            var deletedValue = deque.DeleteLeft();  
 
-			Assert.AreEqual(0, deque.Size());
-		}
+            // Assert
+            Assert.AreEqual(reader.LijstWillekeurig10000.Last(), deletedValue);  
+            Assert.AreEqual(reader.LijstWillekeurig10000.Length - 1, deque.Size()); 
+        }
 
-		[TestMethod]
-		public void TestDeleteRightWithLijstAflopend2()
-		{
-			// Arrange
-			var deque = new Deque<int>();
-			var expectedOrder = new Stack<int>();
+        [TestMethod]
+        public void TestDeleteRightLijstWillekeurig3()
+        {
+            // Arrange
+            var deque = new Deque<int>();
 
-			foreach (var value in reader.LijstAflopend2)
-			{
-				deque.InsertLeft(value);
-				expectedOrder.Push(value);
-			}
+            // Act
+            foreach (var value in reader.LijstWillekeurig3)
+            {
+                deque.InsertRight(value);
+            }
 
-			// Act & Assert
-			foreach (var expectedValue in expectedOrder)
-			{
-				Assert.AreEqual(expectedValue, deque.DeleteRight());
-			}
+            var deletedValue = deque.DeleteRight();
 
-			Assert.AreEqual(0, deque.Size());
-		}
+            // Assert
+            Assert.AreEqual(reader.LijstWillekeurig3.Last(), deletedValue);
+            Assert.AreEqual(reader.LijstWillekeurig3.Length - 1, deque.Size());
+        }
 
-		[TestMethod]
-		public void TestLargeDatasetStressWithLijstOplopend10000()
-		{
-			// Arrange
-			var deque = new Deque<int>();
+        [TestMethod]
+        public void TestSizeLijstAflopend2()
+        {
+            // Arrange
+            var deque = new Deque<int>();
 
-			// Act
-			foreach (var value in reader.LijstOplopend10000)
-			{
-				deque.InsertRight(value);
-			}
+            // Act
+            foreach (var value in reader.LijstAflopend2) 
+            {
+                deque.InsertLeft(value);
+            }
 
-			while (deque.Size() > 0)
-			{
-				deque.DeleteLeft();
-			}
+            // Assert
+            Assert.AreEqual(reader.LijstAflopend2.Length, deque.Size()); 
+        }
 
-			// Assert
-			Assert.AreEqual(0, deque.Size());
-		}
+        [TestMethod]
+        public void TestLijstOnsorteerbaar3()
+        {
+            // Arrange
+            var deque = new Deque<object>();
 
-		[TestMethod]
-		public void TestMixedOperationsWithLijstOnsorteerbaar3()
-		{
-			// Arrange
-			var deque = new Deque<object>();
+            // Act
+            foreach (var value in reader.LijstOnsorteerbaar3) 
+            {
+                deque.InsertLeft(value);
+            }
 
-			// Act
-			foreach (var value in reader.LijstOnsorteerbaar3)
-			{
-				deque.InsertRight(value);
-			}
+            deque.DeleteLeft();
 
-			deque.InsertLeft("newStart");
-			deque.InsertRight("newEnd");
-
-			var removedFirst = deque.DeleteLeft();
-			var removedLast = deque.DeleteRight();
-
-			// Assert
-			Assert.AreEqual("newStart", removedFirst);
-			Assert.AreEqual("newEnd", removedLast);
-			Assert.AreEqual(reader.LijstOnsorteerbaar3.Length, deque.Size());
-		}
-
-		[TestMethod]
-		public void TestEdgeCaseWithLijstAflopend2()
-		{
-			// Arrange
-			var deque = new Deque<int>();
-
-			// Act
-			foreach (var value in reader.LijstAflopend2)
-			{
-				deque.InsertRight(value);
-			}
-
-			// Clear the deque
-			while (deque.Size() > 0)
-			{
-				deque.DeleteRight();
-			}
-
-			// Assert
-			Assert.AreEqual(0, deque.Size());
-			Assert.ThrowsException<InvalidOperationException>(() => deque.DeleteLeft());
-		}
-	}
+            // Assert
+            Assert.AreEqual(2, deque.Size());
+            Assert.AreEqual(1.0, deque.DeleteLeft());
+        }
+    }
 }

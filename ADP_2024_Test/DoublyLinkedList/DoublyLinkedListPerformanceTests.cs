@@ -51,7 +51,6 @@ namespace ADP_2024_Test.DoublyLinkedList
 			// Assert
 			watch.Stop();
 
-			// Use TimeSpan for consistent precision in time output
 			var elapsed = watch.Elapsed;
 			Console.WriteLine($"Time taken to add {amount} elements: {elapsed}");
 
@@ -84,7 +83,6 @@ namespace ADP_2024_Test.DoublyLinkedList
 			// Arrange
 			var doublyLinkedList = new DoublyLinkedList<int>();
 
-			// Populate the doubly linked list with the specified number of elements
 			for (var i = 0; i < amount; i++)
 			{
 				doublyLinkedList.Add(i);
@@ -93,7 +91,6 @@ namespace ADP_2024_Test.DoublyLinkedList
 			var watch = Stopwatch.StartNew();
 
 			// Act
-			// Remove elements from the list one by one
 			for (var i = 0; i < amount; i++)
 			{
 				doublyLinkedList.Remove(i);
@@ -108,7 +105,5 @@ namespace ADP_2024_Test.DoublyLinkedList
 
 			Assert.AreEqual(expectedAmount, doublyLinkedList.Length);
 		}
-
-
 	}
 }
