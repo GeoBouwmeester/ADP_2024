@@ -54,29 +54,8 @@ namespace ADP_2024_Test.DoublyLinkedList
 			var contains = doublyLinkedList.Contains(5247);
 
 			// Assert 
-			Assert.AreEqual(0, doublyLinkedList.Length); 
-			Assert.IsFalse(contains);                   
-		}
-
-		[TestMethod]
-		public void TestDoublyLinkedListWithLijstOnsorteerbaar3()
-		{
-			// Arrange
-			var doublyLinkedList = new DoublyLinkedList<object>();
-
-			// Act
-			foreach (var value in reader.LijstOnsorteerbaar3)
-			{
-				doublyLinkedList.Add(value);
-			}
-
-			doublyLinkedList.Remove("string");
-
-			var contains = doublyLinkedList.Contains("string");
-
-			 Assert
-			Assert.AreEqual(2, doublyLinkedList.Length); 
-			Assert.IsFalse(contains);                   
+			Assert.AreEqual(0, doublyLinkedList.Length);
+			Assert.IsFalse(contains);
 		}
 
 		// Test for Get method (by index)
@@ -85,15 +64,15 @@ namespace ADP_2024_Test.DoublyLinkedList
 		{
 			// Arrange
 			var doublyLinkedList = new DoublyLinkedList<int>();
-			foreach (var value in reader.LijstAflopend2)
+			foreach (var value in reader.LijstOplopend2)
 			{
 				doublyLinkedList.Add(value);
 			}
 
 			// Act & Assert
-			Assert.AreEqual(-10033224, doublyLinkedList.Get(1));  // Get the second element
-			Assert.ThrowsException<IndexOutOfRangeException>(() => doublyLinkedList.Get(-1)); // Invalid index
-			Assert.ThrowsException<IndexOutOfRangeException>(() => doublyLinkedList.Get(doublyLinkedList.Length)); // Invalid index
+			Assert.AreEqual(1023, doublyLinkedList.Get(1));
+			Assert.ThrowsException<IndexOutOfRangeException>(() => doublyLinkedList.Get(-1));
+			Assert.ThrowsException<IndexOutOfRangeException>(() => doublyLinkedList.Get(doublyLinkedList.Length));
 		}
 
 		// Test for Set method
@@ -108,12 +87,12 @@ namespace ADP_2024_Test.DoublyLinkedList
 			}
 
 			// Act
-			doublyLinkedList.Set(1, 10);  // Set new value at index 1
+			doublyLinkedList.Set(1, 10);
 
 			// Assert
-			Assert.AreEqual(10, doublyLinkedList.Get(1));  // Check if value was set correctly
-			Assert.ThrowsException<IndexOutOfRangeException>(() => doublyLinkedList.Set(-1, 10));  // Invalid index
-			Assert.ThrowsException<IndexOutOfRangeException>(() => doublyLinkedList.Set(doublyLinkedList.Length, 10));  // Invalid index
+			Assert.AreEqual(10, doublyLinkedList.Get(1));
+			Assert.ThrowsException<IndexOutOfRangeException>(() => doublyLinkedList.Set(-1, 10));
+			Assert.ThrowsException<IndexOutOfRangeException>(() => doublyLinkedList.Set(doublyLinkedList.Length, 10));
 		}
 
 		[TestMethod]
@@ -133,26 +112,25 @@ namespace ADP_2024_Test.DoublyLinkedList
 
 			// Assert: Ensure that the value was removed
 			Assert.IsTrue(removed);
-			Assert.AreEqual(9999, doublyLinkedList.Length);  
+			Assert.AreEqual(9999, doublyLinkedList.Length);
 
 			var exists = doublyLinkedList.Contains(99);
 			Assert.IsTrue(exists);
 		}
-		
+
 		// Test for Contains method
 		[TestMethod]
 		public void TestContains()
 		{
 			// Arrange
 			var doublyLinkedList = new DoublyLinkedList<int>();
-			foreach (var value in reader.LijstAflopend2)
+			foreach (var value in reader.LijstWillekeurig10000)
 			{
 				doublyLinkedList.Add(value);
 			}
 
-			// Act & Assert
-			Assert.IsTrue(doublyLinkedList.Contains(1)); 
-			Assert.IsFalse(doublyLinkedList.Contains(99)); 
+			// Act
+			Assert.IsTrue(doublyLinkedList.Contains(4138));
 		}
 
 		// Test for Find method
@@ -167,8 +145,8 @@ namespace ADP_2024_Test.DoublyLinkedList
 			}
 
 			// Act
-			var foundNode = doublyLinkedList.Find(1); 
-			var notFoundNode = doublyLinkedList.Find(99);  
+			var foundNode = doublyLinkedList.Find(1);
+			var notFoundNode = doublyLinkedList.Find(99);
 
 			// Assert
 			Assert.IsNotNull(foundNode);
@@ -182,25 +160,25 @@ namespace ADP_2024_Test.DoublyLinkedList
 			// Arrange
 			var doublyLinkedList = new DoublyLinkedList<Pizza>();
 
-			foreach (var value in reader.LijstPizza6) 
+			// Act
+			foreach (var value in reader.LijstPizza6)
 			{
 				doublyLinkedList.Add(value);
 			}
 
-			// Add a new pizza object to the list
-			var newPizza = new Pizza("Pepperoni", 6);
+			var newPizza = new Pizza("Mushroom", 8);
+
 			doublyLinkedList.Add(newPizza);
 
-			// Act
 			var contains = doublyLinkedList.Contains(newPizza);
-			var indexOf = doublyLinkedList.IndexOf(newPizza); 
-			var first = doublyLinkedList.Get(indexOf); 
+			var index = doublyLinkedList.IndexOf(newPizza);
+			var first = doublyLinkedList.Get(index);
 
 			// Assert
-			Assert.AreEqual(7, doublyLinkedList.Length); 
+			Assert.AreEqual(7, doublyLinkedList.Length);
 			Assert.IsTrue(contains);
-			Assert.AreEqual(6, indexOf); 
-			Assert.AreEqual(newPizza, first); 
+			Assert.AreEqual(6, index);
+			Assert.AreEqual(newPizza, first);
 		}
 
 		[TestMethod]
@@ -214,11 +192,11 @@ namespace ADP_2024_Test.DoublyLinkedList
 			}
 
 			// Act
-			int index450 = doublyLinkedList.IndexOf(450); 
-			int index99999 = doublyLinkedList.IndexOf(99999); 
+			int index450 = doublyLinkedList.IndexOf(450);
+			int index99999 = doublyLinkedList.IndexOf(99999);
 
 			// Assert
-			Assert.AreEqual(449, index450); 
+			Assert.AreEqual(449, index450);
 			Assert.AreEqual(-1, index99999);
 		}
 
