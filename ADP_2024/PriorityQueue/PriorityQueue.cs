@@ -1,18 +1,19 @@
 ﻿namespace ADP_2024.PriorityQueue;
 
-public class PriorityQueue<T>
+public class PriorityQueue<T> where T : IComparable<T>
 {
-    private (T item, int Priority)[] _items;
-    private const int DefaultCapacity = 4;
+    private T[] _items;
     private int _capacity;
     private int _size;
     private int _front;
     private int _rear;
+    private const int DefaultCapacity = 4;
+    private const int ResizeFactor = 2;
 
     public PriorityQueue(int capacity = DefaultCapacity)
     {
         _capacity = capacity;
-        _items = new (T item, int Priority)[_capacity];
+        _items = new T[_capacity];
         _front = 0;
         _rear = -1;
         _size = 0;
@@ -20,18 +21,15 @@ public class PriorityQueue<T>
 
     public bool IsEmpty => _size == 0;
     public int Count => _size;
+    private bool IsUnderutilized => _size <= _capacity / 4 && _capacity > 4;
+    private bool IsFull => _size == _capacity;
 
-    // Add method to insert an element with a priority
-    public void Add(T item, int priority)
+    public void Add(T item)
     {
-        if (_size == _capacity - 1)
-        {
-            Resize();
-        }
+        if (IsFull) Resize(_capacity * ResizeFactor);
 
-        // Add the new element at the rear
         _rear = (_rear + 1) % _capacity;
-        _items[_rear] = (item, priority);
+        _items[_rear] = item;
         _size++;
 
         Reorder();
@@ -39,20 +37,15 @@ public class PriorityQueue<T>
 
     private void Reorder()
     {
-        // Index of the one just added
-        int current = _rear;
+        int currentIndex = _rear;
 
-        while (current != _front)
+        while (currentIndex != _front)
         {
-            int prev = (current - 1 + _capacity) % _capacity;
+            int previousIndex = (currentIndex - 1 + _capacity) % _capacity;
 
-            if (_items[current].Priority > _items[prev].Priority)
+            if (_items[currentIndex].CompareTo(_items[previousIndex]) > 0)
             {
-                // Swap nodes
-                (T item, int Priority) temp = _items[current];
-                _items[current] = _items[prev];
-                _items[prev] = temp;
-                current = prev;
+                currentIndex = Swap(currentIndex, previousIndex);
             }
             else
             {
@@ -61,43 +54,52 @@ public class PriorityQueue<T>
         }
     }
 
-    private void Resize()
+    private int Swap(int currentIndex, int previousIndex)
     {
-        int newCapacity = _capacity * 2;
+        T temp = _items[currentIndex];
+        _items[currentIndex] = _items[previousIndex];
+        _items[previousIndex] = temp;
+        currentIndex = previousIndex;
+        return currentIndex;
+    }
 
-        var newArray = new (T Item, int Priority)[newCapacity];
+    private void Resize(int newCapacity)
+    {
+        var newItems = new T[newCapacity];
 
-        // Copy elements to the new array
         for (int i = 0; i < _size; i++)
         {
-            newArray[i] = _items[(_front + i) % _capacity];
+            newItems[i] = _items[(_front + i) % _capacity];
         }
 
-        _items = newArray;
-        _front = 0;
-        _rear = _size;
+        _items = newItems;
         _capacity = newCapacity;
+        _front = 0;
+        _rear = _size - 1;
     }
 
-    // Peek method to view the highest-priority item without removing it
     public T Peek()
     {
-        if (_size == 0) throw new InvalidOperationException("The priorityQueue is empty.");
+        if (IsEmpty) 
+            throw new InvalidOperationException("The priorityQueue is empty.");
 
-        return _items[_front].item;
+        return _items[_front];
     }
 
-    // Poll method to remove and return the highest-priority item
     public T Poll()
     {
-        if (_size == 0) throw new InvalidOperationException("The priorityQueue is empty.");
-       
-        // Get the highest-priority item (at the head)
-        T result = _items[_front].item;
+        if (IsEmpty)
+            throw new InvalidOperationException("The priorityQueue is empty.");
 
-        // Move the head to the next position
+        T result = _items[_front];
+
+        _items[_front] = default;
+
         _front = (_front + 1) % _capacity;
+
         _size--;
+
+        if (IsUnderutilized) Resize(_capacity / ResizeFactor);
 
         return result;
     }

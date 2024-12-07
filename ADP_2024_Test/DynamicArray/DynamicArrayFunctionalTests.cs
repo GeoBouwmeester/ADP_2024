@@ -73,13 +73,13 @@ public sealed class DynamicArrayFunctionalTests
 
         var index = dynamicArray.IndexOf(newValue);
 
-        var first = dynamicArray.Get(index);
+        var x = dynamicArray.Get(index);
 
         // Assert
         Assert.AreEqual(8002, dynamicArray.Count);
         Assert.IsTrue(contains);
         Assert.AreEqual(8001, index);
-        Assert.AreEqual(newValue, first);
+        Assert.AreEqual(newValue, x);
     }
 
     [TestMethod]
@@ -259,22 +259,19 @@ public sealed class DynamicArrayFunctionalTests
     [TestMethod]
     public void TestLijstOnsorteerbaar3()
     {
-        //// Arrange
-        //var dynamicArray = new DynamicArray<int>();
+        // Arrange
+        var dynamicArray = new DynamicArray<int>();
 
-        //// Act
-        //foreach (var value in reader.LijstOnsorteerbaar3)
-        //{
-        //    dynamicArray.Add(value);
-        //}
+        // Act
+        foreach (var value in reader.LijstOnsorteerbaar3)
+        {
+            if (value.GetType() != typeof(Int64)) continue;
+                
+            dynamicArray.Add((int)(long)value);
+        }
 
-        //dynamicArray.Remove("string");
-
-        //var contains = dynamicArray.Contains("string");
-
-        //// Assert
-        //Assert.AreEqual(2, dynamicArray.Count);
-        //Assert.IsFalse(contains);
+        // Assert
+        Assert.AreEqual(1, dynamicArray.Count);
     }
 
     [TestMethod]

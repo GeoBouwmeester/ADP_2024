@@ -68,7 +68,7 @@ public class DynamicArray<T> where T : IComparable<T>
             _items[i] = _items[i + 1];
         }
 
-        _items[_size - 1] = default!;
+        _items[_size - 1] = default;
 
         _size--;
 

@@ -23,12 +23,12 @@ public class DatasetReader
     public int[] LijstWillekeurig3 => Datasets.lijst_willekeurig_3;
     public Pizza[] LijstPizza6 =>
     [
-        new Pizza("Pepperoni", 8),
-        new Pizza("Pepperoni", 6),
-        new Pizza("Mozzarella", 8),
-        new Pizza("Mozzarella", 6),
-        new Pizza("Margherita", 8),
-        new Pizza("Margherita", 6)
+        new Pizza("A", 8),
+        new Pizza("D", 8),
+        new Pizza("E", 8),
+        new Pizza("B", 8),
+        new Pizza("C", 8),
+        new Pizza("F", 8)
     ];
 
     public DatasetReader()

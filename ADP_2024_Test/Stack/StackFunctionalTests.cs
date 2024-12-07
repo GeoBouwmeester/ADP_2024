@@ -28,7 +28,7 @@ public sealed class StackFunctionalTests
         }
 
         // Assert
-        Assert.AreEqual(2, stack.Size());
+        Assert.AreEqual(2, stack.Size);
     }
 
     [TestMethod]
@@ -54,7 +54,7 @@ public sealed class StackFunctionalTests
         var popped = stack.Pop();
 
         // Assert
-        Assert.AreEqual(1, stack.Size());
+        Assert.AreEqual(1, stack.Size);
         Assert.AreEqual(newValue, first);
         Assert.AreEqual(newValue, popped);
     }
@@ -82,7 +82,7 @@ public sealed class StackFunctionalTests
         var popped = stack.Pop();
 
         // Assert
-        Assert.AreEqual(8000, stack.Size());
+        Assert.AreEqual(8000, stack.Size);
         Assert.AreEqual(newValue, first);
         Assert.AreEqual(newValue, popped);
     }
@@ -110,7 +110,7 @@ public sealed class StackFunctionalTests
         var popped = stack.Pop();
 
         // Assert
-        Assert.AreEqual(2, stack.Size());
+        Assert.AreEqual(2, stack.Size);
         Assert.AreEqual(newValue, first);
         Assert.AreEqual(newValue, popped);
     }
@@ -138,7 +138,7 @@ public sealed class StackFunctionalTests
         var popped = stack.Pop();
 
         // Assert
-        Assert.AreEqual(2, stack.Size());
+        Assert.AreEqual(2, stack.Size);
         Assert.AreEqual(newValue, first);
         Assert.AreEqual(newValue, popped);
     }
@@ -166,7 +166,7 @@ public sealed class StackFunctionalTests
         var popped = stack.Pop();
 
         // Assert
-        Assert.AreEqual(9999, stack.Size());
+        Assert.AreEqual(9999, stack.Size);
         Assert.AreEqual(newValue, first);
         Assert.AreEqual(newValue, popped);
     }
@@ -192,7 +192,7 @@ public sealed class StackFunctionalTests
         var popped = stack.Pop();
 
         // Assert
-        Assert.AreEqual(0, stack.Size());
+        Assert.AreEqual(0, stack.Size);
         Assert.AreEqual(newValue, first);
         Assert.AreEqual(newValue, popped);
     }
@@ -218,7 +218,7 @@ public sealed class StackFunctionalTests
         var popped = stack.Pop();
 
         // Assert
-        Assert.AreEqual(0, stack.Size());
+        Assert.AreEqual(0, stack.Size);
         Assert.AreEqual(newValue, first);
         Assert.AreEqual(newValue, popped);
     }
@@ -246,7 +246,7 @@ public sealed class StackFunctionalTests
         var popped = stack.Pop();
 
         // Assert
-        Assert.AreEqual(1, stack.Size());
+        Assert.AreEqual(1, stack.Size);
         Assert.AreEqual(newValue, first);
         Assert.AreEqual(newValue, popped);
     }
@@ -269,7 +269,7 @@ public sealed class StackFunctionalTests
         Int64 expected = 1;
 
         // Assert
-        Assert.AreEqual(1, stack.Size());
+        Assert.AreEqual(1, stack.Size);
         Assert.AreEqual(expected, stack.TopValue());
     }
 
@@ -296,7 +296,7 @@ public sealed class StackFunctionalTests
         var popped = stack.Pop();
 
         // Assert
-        Assert.AreEqual(9998, stack.Size());
+        Assert.AreEqual(9998, stack.Size);
         Assert.AreEqual(newValue, first);
         Assert.AreEqual(newValue, popped);
     }
@@ -320,7 +320,7 @@ public sealed class StackFunctionalTests
 
         // Assert
         Assert.ThrowsException<InvalidOperationException>(() => stack.TopValue());
-        Assert.AreEqual(0, stack.Size());
+        Assert.AreEqual(0, stack.Size);
     }
 
     [TestMethod]
@@ -346,7 +346,7 @@ public sealed class StackFunctionalTests
         var popped = stack.Pop();
 
         // Assert
-        Assert.AreEqual(2, stack.Size());
+        Assert.AreEqual(2, stack.Size);
         Assert.AreEqual(newValue, first);
         Assert.AreEqual(newValue, popped);
     }
@@ -370,7 +370,7 @@ public sealed class StackFunctionalTests
         var first = stack.TopValue();
 
         // Assert
-        Assert.AreEqual(7, stack.Size());
+        Assert.AreEqual(7, stack.Size);
         Assert.AreEqual(newPizza, first);
     }
 }

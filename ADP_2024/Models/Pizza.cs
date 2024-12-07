@@ -7,6 +7,19 @@ public class Pizza(string pizzaName, int numberOfSlices) : IComparable<Pizza>
 
     public int CompareTo(Pizza? other)
     {
-        return PizzaName == other?.PizzaName && NumberOfSlices == other?.NumberOfSlices ? 0 : NumberOfSlices > other?.NumberOfSlices ? 1 : -1;
+        if (other == null) return 1;
+
+        if (PizzaName == other.PizzaName)
+        {
+            return NumberOfSlices == other.NumberOfSlices
+                ? 0
+                : NumberOfSlices < other.NumberOfSlices
+                ? -1
+                : 1;
+        }
+        else
+        {
+            return PizzaName.CompareTo(other.PizzaName) > 0 ? 1 : -1;
+        }
     }
 }
