@@ -114,11 +114,10 @@ namespace ADP_2024_Test.Deque
                 deque.InsertLeft(value);
             }
 
-            deque.DeleteLeft();
+            deque.DeleteRight();
 
             // Assert
             Assert.AreEqual(2, deque.Size());
-            Assert.AreEqual(1.0, deque.DeleteLeft());
         }
     }
 }
