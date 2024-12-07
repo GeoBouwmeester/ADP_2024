@@ -13,7 +13,7 @@ namespace ADP_2024_Test.Deque
         public void SetUp()
         {
             reader = new DatasetReader();
-        }
+		}
 
 
         /*
@@ -28,8 +28,11 @@ namespace ADP_2024_Test.Deque
         | 100_000   | 00:00:00.0143527  |
         | 1_000_000 | 00:00:00.1417488  |
         |-------------------------------|
+        Comments on performance:
+        1. The `InsertLeft` operation has a constant time complexity, O(1), 
+        since it involves inserting a new node at the head without iterating through the list.
         */
-
+        
         [TestMethod]
         [DataRow(10, 10)]
         [DataRow(100, 100)]
@@ -60,7 +63,7 @@ namespace ADP_2024_Test.Deque
 
 
 
-        /*
+		/*
         Execution time:
         |-------------------------------|
         | N         | Time              |
@@ -72,9 +75,16 @@ namespace ADP_2024_Test.Deque
         | 100_000   | 00:00:00.0123541  |
         | 1_000_000 | 00:00:00.1250873  |
         |-------------------------------|
-        */
+        Comments on performance:
+        1. The `InsertRight` operation maintains a constant time complexity O(1), as it involves:
+        - Creating a new node.
+        - Updating the `Previous` pointer(aanpassen) of the new node to point to the current `tail`.
+        - Adjusting the `Next` pointer of the current `tail` to point to the new node.
+        - Reassigning the `tail` pointer to the new node.
+        These operations are fixed in number and do not depend on the size of the deque.
+         */
 
-        [TestMethod]
+		[TestMethod]
         [DataRow(10, 10)]
         [DataRow(100, 100)]
         [DataRow(1000, 1000)]
@@ -103,7 +113,7 @@ namespace ADP_2024_Test.Deque
         }
 
 
-        /*
+		/*
         Execution time:
         |-------------------------------|
         | N         | Time              |
@@ -115,9 +125,12 @@ namespace ADP_2024_Test.Deque
         | 100_000   | 00:00:00.0010662  |
         | 1_000_000 | 00:00:00.0136602  |
         |-------------------------------|
-        */
+        Comments on performance:
+        1. The DeleteLeft operation is O(1), as elements are 
+        simply removed from the left end without requiring a shift.
+         */
 
-        [TestMethod]
+		[TestMethod]
         [DataRow(10, 10)]
         [DataRow(100, 100)]
         [DataRow(1000, 1000)]
@@ -151,7 +164,7 @@ namespace ADP_2024_Test.Deque
         }
 
 
-        /*
+		/*
         Execution time:
         |-------------------------------|
         | N         | Time              |
@@ -163,9 +176,11 @@ namespace ADP_2024_Test.Deque
         | 100_000   | 00:00:00.0012874  |
         | 1_000_000 | 00:00:00.0151024  |
         |-------------------------------|
+        Comments on performance:
+        1. The DeleteRight operation in a deque is O(1), as elements are simply removed from the right end without requiring a shift.
         */
 
-        [TestMethod]
+		[TestMethod]
         [DataRow(10, 10)]
         [DataRow(100, 100)]
         [DataRow(1000, 1000)]
@@ -197,5 +212,5 @@ namespace ADP_2024_Test.Deque
 
             Assert.AreEqual(0, deque.Size());
         }
-    }
+	}
 }
