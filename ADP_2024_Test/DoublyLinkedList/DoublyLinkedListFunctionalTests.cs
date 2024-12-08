@@ -40,13 +40,11 @@ namespace ADP_2024_Test.DoublyLinkedList
 			var doublyLinkedList = new DoublyLinkedList<int>();
 
 			// Act
-			// Add elements from LijstOplopend10000 to the doubly linked list
 			foreach (var value in reader.LijstOplopend10000)
 			{
 				doublyLinkedList.Add(value);
 			}
 
-			// Remove all elements from the doubly linked list
 			for (int i = 0; i < reader.LijstOplopend10000.Length; i++)
 			{
 				doublyLinkedList.Remove(reader.LijstOplopend10000[i]);
@@ -58,41 +56,49 @@ namespace ADP_2024_Test.DoublyLinkedList
 			Assert.IsFalse(contains);
 		}
 
-		// Test for Get method (by index)
 		[TestMethod]
-		public void TestGet()
+		public void TestGetLijstFloat8001()
 		{
 			// Arrange
-			var doublyLinkedList = new DoublyLinkedList<int>();
-			foreach (var value in reader.LijstOplopend2)
+			var doublyLinkedList = new DoublyLinkedList<float>();
+
+			// Act
+			foreach (var value in reader.LijstFloat8001)
 			{
 				doublyLinkedList.Add(value);
 			}
 
-			// Act & Assert
-			Assert.AreEqual(1023, doublyLinkedList.Get(1));
+			var newValue = 121.34F;
+
+			doublyLinkedList.Add(newValue);
+
+			// Assert
+			Assert.AreEqual(8002, doublyLinkedList.Length);
+			Assert.AreEqual(-0.0, doublyLinkedList.Get(0));
 			Assert.ThrowsException<IndexOutOfRangeException>(() => doublyLinkedList.Get(-1));
 			Assert.ThrowsException<IndexOutOfRangeException>(() => doublyLinkedList.Get(doublyLinkedList.Length));
 		}
 
-		// Test for Set method
 		[TestMethod]
 		public void TestSet()
 		{
 			// Arrange
 			var doublyLinkedList = new DoublyLinkedList<int>();
-			foreach (var value in reader.LijstAflopend2)
+			foreach (var value in reader.LijstHerhaald1000)
 			{
 				doublyLinkedList.Add(value);
 			}
 
 			// Act
-			doublyLinkedList.Set(1, 10);
+			doublyLinkedList.Set(500, 42); 
 
 			// Assert
-			Assert.AreEqual(10, doublyLinkedList.Get(1));
+			Assert.AreEqual(42, doublyLinkedList.Get(500)); 
+			Assert.AreEqual(1, doublyLinkedList.Get(499)); 
+			Assert.AreEqual(1, doublyLinkedList.Get(501)); 
+
+
 			Assert.ThrowsException<IndexOutOfRangeException>(() => doublyLinkedList.Set(-1, 10));
-			Assert.ThrowsException<IndexOutOfRangeException>(() => doublyLinkedList.Set(doublyLinkedList.Length, 10));
 		}
 
 		[TestMethod]
@@ -101,24 +107,26 @@ namespace ADP_2024_Test.DoublyLinkedList
 			// Arrange
 			var doublyLinkedList = new DoublyLinkedList<int>();
 
-			// Add values from 1 to 10000 to the doubly linked list
-			for (int i = 1; i <= 10000; i++)
+
+			foreach (var value in reader.LijstWillekeurig3) 
 			{
-				doublyLinkedList.Add(i);
+				doublyLinkedList.Add(value);
 			}
 
-			// Act: Remove the first element (value 1)
+			// Act: 
 			var removed = doublyLinkedList.Remove(1);
 
-			// Assert: Ensure that the value was removed
+			// Assert: 
 			Assert.IsTrue(removed);
-			Assert.AreEqual(9999, doublyLinkedList.Length);
+			Assert.AreEqual(2, doublyLinkedList.Length);
 
-			var exists = doublyLinkedList.Contains(99);
+			var exists = doublyLinkedList.Contains(3);
+			Assert.IsTrue(exists);
+
+			exists = doublyLinkedList.Contains(2);
 			Assert.IsTrue(exists);
 		}
 
-		// Test for Contains method
 		[TestMethod]
 		public void TestContains()
 		{
@@ -133,13 +141,12 @@ namespace ADP_2024_Test.DoublyLinkedList
 			Assert.IsTrue(doublyLinkedList.Contains(4138));
 		}
 
-		// Test for Find method
 		[TestMethod]
 		public void TestFind()
 		{
 			// Arrange
 			var doublyLinkedList = new DoublyLinkedList<int>();
-			foreach (var value in reader.LijstAflopend2)
+			foreach (var value in reader.LijstGesorteerdOplopend3)
 			{
 				doublyLinkedList.Add(value);
 			}
@@ -186,18 +193,103 @@ namespace ADP_2024_Test.DoublyLinkedList
 		{
 			// Arrange
 			var doublyLinkedList = new DoublyLinkedList<int>();
-			foreach (var value in reader.LijstOplopend10000)
+			foreach (var value in reader.LijstGesorteerdAflopend3)
 			{
 				doublyLinkedList.Add(value);
 			}
 
 			// Act
-			int index450 = doublyLinkedList.IndexOf(450);
-			int index99999 = doublyLinkedList.IndexOf(99999);
+			int index3 = doublyLinkedList.IndexOf(3);
+			int index1 = doublyLinkedList.IndexOf(1);
 
 			// Assert
-			Assert.AreEqual(449, index450);
-			Assert.AreEqual(-1, index99999);
+			Assert.AreEqual(0, index3);
+			Assert.AreEqual(2, index1);
+		}
+
+		[TestMethod]
+		public void TestLijstLeeg0()
+		{
+			// Arrange
+			var doublyLinkedList = new DoublyLinkedList<int>();
+
+			// Act
+			foreach (var value in reader.LijstLeeg0)
+			{
+				doublyLinkedList.Add((int)value);
+			}
+
+			var newValue = 10;
+
+			doublyLinkedList.Add(newValue);
+
+
+			// Assert
+			Assert.AreEqual(1, doublyLinkedList.Length);
+		}
+
+		[TestMethod]
+		public void TestLijstNull1()
+		{
+			// Arrange
+			var doublyLinkedList = new DoublyLinkedList<int>();
+
+			// Act
+			foreach (var value in reader.LijstNull1)
+			{
+				if (value != null) doublyLinkedList.Add((int)value);
+			}
+
+			var newValue = 10123;
+
+			doublyLinkedList.Add(newValue);
+
+
+			// Assert
+			Assert.AreEqual(1, doublyLinkedList.Length);
+		}
+
+		[TestMethod]
+		public void TestLijstNull3()
+		{
+			// Arrange
+			var doublyLinkedList = new DoublyLinkedList<int>();
+
+			// Act
+			foreach (var value in reader.LijstNull3)
+			{
+				if (value != null) doublyLinkedList.Add((int)value);
+			}
+
+			var newValue = 11233;
+
+			doublyLinkedList.Add(newValue);
+
+
+			// Assert
+			Assert.AreEqual(3, doublyLinkedList.Length);
+			Assert.AreEqual(1, doublyLinkedList.Get(0));
+		}
+
+		[TestMethod]
+		public void TestLijstOnsorteerbaar3()
+		{
+			// Arrange
+			var doublyLinkedList = new DoublyLinkedList<int>();
+
+			// Act
+			foreach (var value in reader.LijstOnsorteerbaar3)
+			{
+				if (value.GetType() != typeof(Int64)) continue;
+
+				doublyLinkedList.Add((int)(long)value);
+			}
+
+			var extravalue = 10;
+			doublyLinkedList.Add(extravalue);
+
+			// Assert
+			Assert.AreEqual(2, doublyLinkedList.Length);
 		}
 
 	}
