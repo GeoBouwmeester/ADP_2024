@@ -5,7 +5,7 @@ namespace ADP_2024;
 
 public class DatasetReader
 {
-    private const string DATASET_PATH = "../../../../ADP_2024/resources/dataset_sorteren.json";
+    private const string DATASET_PATH = "../../../../dataset_sorteren.json";
     private Datasets Datasets { get; init; }
 
     public int[] LijstAflopend2 => Datasets.lijst_aflopend_2;
