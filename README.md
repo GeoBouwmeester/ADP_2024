@@ -16,6 +16,8 @@
 
 5. When tests are not shown click on the refresh button at the top.
 
+> If tests are still not shown close and open the codespace, wait untill the project is fully loaded, and navigate to the 'Testing' tab.
+
 ![image](https://github.com/user-attachments/assets/9a3b4743-0a5c-497a-9304-64fc2af113ff)
 
 6. Click on the triangle, shown when hovered over the tests, to run the tests.
