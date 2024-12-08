@@ -295,7 +295,7 @@ namespace ADP_2024_Test.DoublyLinkedList
 			  As N increases, the time to reach the desired node increases proportionally.
 		2. Performance Observations:
 			- The results demonstrate that time grows linearly with the size of the list. 
-			  For example, for 100,000 elements, the operation takes 25 seconds, which highlights the linear relationship between time and list size.
+			  For example, for 100,000 elements, the operation takes 1 minute and 8 seconds, which highlights the linear relationship between time and list size.
 		3. To improve performance we could start searching from the end if the given index is closer to the tail then to the head.
 		*/
         [TestMethod]
@@ -352,7 +352,7 @@ namespace ADP_2024_Test.DoublyLinkedList
 		2. Analysis of Results:
 			- From the times recorded, we can see that for small lists, the method performs well. 
 			  However, as the size increases, the time grows rapidly. For 100,000 elements, 
-			  the operation takes nearly 47 seconds, which is a noticeable delay.
+			  the operation takes nearly 1 minute and 56 seconds, which is a noticeable delay.
 		*/
 		[TestMethod]
 		[DataRow(10, 10)]
@@ -406,7 +406,7 @@ namespace ADP_2024_Test.DoublyLinkedList
 			  and the time complexity for this is O(N), as each node must be checked until the target is found.
 			- As the number of elements grows, the traversal time increases linearly, making the `Find()` operation less efficient for large lists.
 		2. Execution Time Insights:
-			- For 100,000 elements, the search operation takes almost 47 seconds. 
+			- For 100,000 elements, the search operation takes almost 2 minutes 16 seconds. 
 			  This significant delay is indicative of the linear search pattern, where the list is scanned node-by-node until the target is located.
 			- As expected, the time to find elements increases with the list size, which can be a problem when frequent searches are required.
 		*/
