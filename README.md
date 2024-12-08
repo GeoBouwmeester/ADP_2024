@@ -1,10 +1,11 @@
 # ADP_2024
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/GeoBouwmeester/ADP_2024?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/GeoBouwmeester/ADP_2024)
 
 ## Test
 
-1. Open the codespace provided at the top of the README.md file.
+1. Open a codespace provided at the top of the README.md file.
 2. When Visual Studio Code is opened in the browser navigate to the 'Testing' tab from the sidebar. <br>
 ![image](https://github.com/user-attachments/assets/11385b34-df6d-49fa-ac94-6d97e0d3d197)
 3. Click on the triangle, shown when hovered over the tests, to run the tests. <br>
