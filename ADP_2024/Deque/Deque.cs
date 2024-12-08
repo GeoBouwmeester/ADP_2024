@@ -29,7 +29,7 @@
 				head = newNode;
 			}
 
-			size++; 
+			size++;
 		}
 
 		public void InsertRight(T item)
