@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|c:\\users\\julia\\desktop\\code\\han\\adp_2024\\adp_2024_test\\deque\\dequeperformancetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|solutionrelative:adp_2024_test\\deque\\dequeperformancetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|c:\\users\\julia\\desktop\\code\\han\\adp_2024\\adp_2024_test\\selectionsort\\selectionsortfunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|solutionrelative:adp_2024_test\\selectionsort\\selectionsortfunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD6382FE-C2D5-483B-9924-AFBAC42CB136}|ADP_2024\\ADP_2024.csproj|c:\\users\\julia\\desktop\\code\\han\\adp_2024\\adp_2024\\deque\\deque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD6382FE-C2D5-483B-9924-AFBAC42CB136}|ADP_2024\\ADP_2024.csproj|solutionrelative:adp_2024\\deque\\deque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\dataset_sorteren.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dataset_sorteren.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD6382FE-C2D5-483B-9924-AFBAC42CB136}|ADP_2024\\ADP_2024.csproj|c:\\users\\julia\\desktop\\code\\han\\adp_2024\\adp_2024\\selectionsort\\selectionsortalgorithm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD6382FE-C2D5-483B-9924-AFBAC42CB136}|ADP_2024\\ADP_2024.csproj|solutionrelative:adp_2024\\selectionsort\\selectionsortalgorithm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|c:\\users\\julia\\desktop\\code\\han\\adp_2024\\adp_2024_test\\priorityqueue\\priorityqueuefunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|solutionrelative:adp_2024_test\\priorityqueue\\priorityqueuefunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,38 +47,64 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DequePerformanceTests.cs",
-              "DocumentMoniker": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024_Test\\Deque\\DequePerformanceTests.cs",
-              "RelativeDocumentMoniker": "ADP_2024_Test\\Deque\\DequePerformanceTests.cs",
-              "ToolTip": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024_Test\\Deque\\DequePerformanceTests.cs",
-              "RelativeToolTip": "ADP_2024_Test\\Deque\\DequePerformanceTests.cs",
-              "ViewState": "AgIAAKYAAAAAAAAAAAAkwK8AAAAOAAAAAAAAAA==",
+              "Title": "SelectionSortFunctionalTests.cs",
+              "DocumentMoniker": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024_Test\\SelectionSort\\SelectionSortFunctionalTests.cs",
+              "RelativeDocumentMoniker": "ADP_2024_Test\\SelectionSort\\SelectionSortFunctionalTests.cs",
+              "ToolTip": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024_Test\\SelectionSort\\SelectionSortFunctionalTests.cs",
+              "RelativeToolTip": "ADP_2024_Test\\SelectionSort\\SelectionSortFunctionalTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T23:55:01.554Z",
+              "WhenOpened": "2024-12-08T19:46:48.241Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Deque.cs",
-              "DocumentMoniker": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024\\Deque\\Deque.cs",
-              "RelativeDocumentMoniker": "ADP_2024\\Deque\\Deque.cs",
-              "ToolTip": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024\\Deque\\Deque.cs*",
-              "RelativeToolTip": "ADP_2024\\Deque\\Deque.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAA6AAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "SelectionSortAlgorithm.cs",
+              "DocumentMoniker": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024\\SelectionSort\\SelectionSortAlgorithm.cs",
+              "RelativeDocumentMoniker": "ADP_2024\\SelectionSort\\SelectionSortAlgorithm.cs",
+              "ToolTip": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024\\SelectionSort\\SelectionSortAlgorithm.cs",
+              "RelativeToolTip": "ADP_2024\\SelectionSort\\SelectionSortAlgorithm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T23:46:02.842Z",
+              "WhenOpened": "2024-12-08T17:44:33.058Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "DockedWidth": 220,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PriorityQueueFunctionalTests.cs",
+              "DocumentMoniker": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024_Test\\PriorityQueue\\PriorityQueueFunctionalTests.cs",
+              "RelativeDocumentMoniker": "ADP_2024_Test\\PriorityQueue\\PriorityQueueFunctionalTests.cs",
+              "ToolTip": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\ADP_2024_Test\\PriorityQueue\\PriorityQueueFunctionalTests.cs",
+              "RelativeToolTip": "ADP_2024_Test\\PriorityQueue\\PriorityQueueFunctionalTests.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwCYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T19:47:58.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "dataset_sorteren.json",
+              "DocumentMoniker": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\dataset_sorteren.json",
+              "RelativeDocumentMoniker": "dataset_sorteren.json",
+              "ToolTip": "C:\\Users\\julia\\Desktop\\Code\\Han\\ADP_2024\\dataset_sorteren.json",
+              "RelativeToolTip": "dataset_sorteren.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALgHAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-08T19:53:19.739Z",
+              "EditorCaption": ""
             }
           ]
         }
