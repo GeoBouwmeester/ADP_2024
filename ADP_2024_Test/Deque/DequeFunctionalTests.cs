@@ -109,7 +109,7 @@ namespace ADP_2024_Test.Deque
         }
 
         [TestMethod]
-        public void TestSizeLijstAflopend2()
+        public void TestSizeLijstFloat8001()
         {
             // Arrange
             var deque = new Deque<float>();
