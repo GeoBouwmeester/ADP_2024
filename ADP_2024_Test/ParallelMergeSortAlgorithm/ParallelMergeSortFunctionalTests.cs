@@ -1,10 +1,11 @@
 ﻿using ADP_2024;
+using ADP_2024.Models;
 using ADP_2024.SortingAlgorithms;
 
-namespace ADP_2024_Test.QuickSortAlgorithm
+namespace ADP_2024_Test.ParallelMergeSortAlgorithm
 {
 	[TestClass]
-	public sealed class QuickSortFunctionalTests
+	public sealed class ParallelMergeSortFunctionalTests
 	{
 		public required DatasetReader reader;
 
@@ -18,11 +19,11 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 		public void TestLijstWillekeurig10000()
 		{
 			// Arrange
-			var quickSort = new QuickSort();
+			var mergeSort = new ParallelMergeSort<int>(); 
 			var array = reader.LijstWillekeurig10000;
 
 			// Act
-			quickSort.QuicksortAlgorithm(array, 0, array.Length - 1);
+			mergeSort.Sort(array);
 
 			// Assert
 			for (int i = 0; i < array.Length - 1; i++)
@@ -36,11 +37,11 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 		public void TestLijstAflopend2()
 		{
 			// Arrange
-			var quickSort = new QuickSort();
+			var mergeSort = new ParallelMergeSort<int>();
 			var array = reader.LijstAflopend2;
 
 			// Act
-			quickSort.QuicksortAlgorithm(array, 0, array.Length - 1);
+			mergeSort.Sort(array);
 
 			// Assert
 			for (int i = 0; i < array.Length - 1; i++)
@@ -54,11 +55,11 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 		public void TestLijstFloat8001()
 		{
 			// Arrange
-			var quickSort = new QuickSort();
+			var mergeSort = new ParallelMergeSort<float>();
 			var array = reader.LijstFloat8001;
 
 			// Act
-			quickSort.QuicksortAlgorithm(array, 0, array.Length - 1);
+			mergeSort.Sort(array);
 
 			// Assert
 			for (int i = 0; i < array.Length - 1; i++)
@@ -73,11 +74,11 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 		public void TestLijstOplopend10000()
 		{
 			// Arrange
-			var quickSort = new QuickSort();
+			var mergeSort = new ParallelMergeSort<int>();
 			var array = reader.LijstOplopend10000;
 
 			// Act
-			quickSort.QuicksortAlgorithm(array, 0, array.Length - 1);
+			mergeSort.Sort(array);
 
 			// Assert
 			for (int i = 0; i < array.Length - 1; i++)
@@ -91,11 +92,11 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 		public void TestLijstGesorteerdOplopend3()
 		{
 			// Arrange
-			var quickSort = new QuickSort();
+			var mergeSort = new ParallelMergeSort<int>();
 			var array = reader.LijstGesorteerdOplopend3;
 
 			// Act
-			quickSort.QuicksortAlgorithm(array, 0, array.Length - 1);
+			mergeSort.Sort(array);
 
 			// Assert
 			for (int i = 0; i < array.Length - 1; i++)
@@ -109,11 +110,11 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 		public void TestLijstWillekeurig3()
 		{
 			// Arrange
-			var quickSort = new QuickSort();
+			var mergeSort = new ParallelMergeSort<int>();
 			var array = reader.LijstWillekeurig3;
 
 			// Act
-			quickSort.QuicksortAlgorithm(array, 0, array.Length - 1);
+			mergeSort.Sort(array);
 
 			// Assert
 			for (int i = 0; i < array.Length - 1; i++)
@@ -127,11 +128,11 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 		public void TestLijstOplopend2()
 		{
 			// Arrange
-			var quickSort = new QuickSort();
+			var mergeSort = new ParallelMergeSort<int>();
 			var array = reader.LijstOplopend2;
 
 			// Act
-			quickSort.QuicksortAlgorithm(array, 0, array.Length - 1);
+			mergeSort.Sort(array);
 
 			// Assert
 			for (int i = 0; i < array.Length - 1; i++)
@@ -145,11 +146,11 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 		public void TestLijstGesorteerdAflopend3()
 		{
 			// Arrange
-			var quickSort = new QuickSort();
+			var mergeSort = new ParallelMergeSort<int>();
 			var array = reader.LijstGesorteerdAflopend3;
 
 			// Act
-			quickSort.QuicksortAlgorithm(array, 0, array.Length - 1);
+			mergeSort.Sort(array);
 
 			// Assert
 			for (int i = 0; i < array.Length - 1; i++)
@@ -163,11 +164,11 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 		public void TestLijstHerhaald1000()
 		{
 			// Arrange
-			var quickSort = new QuickSort();
+			var mergeSort = new ParallelMergeSort<int>();
 			var array = reader.LijstHerhaald1000;
 
 			// Act
-			quickSort.QuicksortAlgorithm(array, 0, array.Length - 1);
+			mergeSort.Sort(array);
 
 			// Assert
 			for (int i = 0; i < array.Length - 1; i++)
@@ -181,11 +182,11 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 		public void TestLijstPizza()
 		{
 			// Arrange
-			var quickSort = new QuickSort();
+			var mergeSort = new ParallelMergeSort<Pizza>();
 			var array = reader.LijstPizza6;
 
 			// Act
-			quickSort.QuicksortAlgorithm(array, 0, array.Length - 1);
+			mergeSort.Sort(array);
 
 			// Assert
 			for (int i = 0; i < array.Length - 1; i++)
@@ -195,17 +196,18 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 			}
 		}
 
+
 		[TestMethod]
 		public void TestLijstOnsorteerbaar3()
 		{
 			// Arrange
-			var quickSort = new QuickSort();
+			var mergeSort = new ParallelMergeSort<int>();
 			var array = reader.LijstOnsorteerbaar3
 							  .Where(value => value.GetType() == typeof(Int64))
 							  .Select(value => (int)(long)value)
 							  .ToArray();
 			// Act
-			quickSort.QuicksortAlgorithm(array, 0, array.Length - 1);
+			mergeSort.Sort(array);
 
 			// Assert
 			for (int i = 0; i < array.Length - 1; i++)
@@ -221,14 +223,14 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 		public void TestLijstNull1()
 		{
 			// Arrange
-			var quickSort = new QuickSort();
+			var mergeSort = new ParallelMergeSort<int>();
 			var array = reader.LijstNull1
-							  .Where(value => value != null) 
-							  .Cast<int>() 
+							  .Where(value => value != null)
+							  .Cast<int>()
 							  .ToArray();
 
 			// Act
-			quickSort.QuicksortAlgorithm(array, 0, array.Length - 1);
+			mergeSort.Sort(array);
 
 			// Assert
 			for (int i = 0; i < array.Length - 1; i++)
@@ -244,14 +246,14 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 		public void TestLijstNull3()
 		{
 			// Arrange
-			var quickSort = new QuickSort();
+			var mergeSort = new ParallelMergeSort<int>();
 			var array = reader.LijstNull3
-							  .Where(value => value != null) 
+							  .Where(value => value != null)
 							  .Cast<int>()
 							  .ToArray();
 
 			// Act
-			quickSort.QuicksortAlgorithm(array, 0, array.Length - 1);
+			mergeSort.Sort(array);
 
 			// Assert
 			for (int i = 0; i < array.Length - 1; i++)
@@ -267,14 +269,14 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 		public void TestLijstNull0()
 		{
 			// Arrange
-			var quickSort = new QuickSort();
+			var mergeSort = new ParallelMergeSort<int>();
 			var array = reader.LijstLeeg0
 							  .Where(value => value != null)
 							  .Cast<int>()
 							  .ToArray();
 
 			// Act
-			quickSort.QuicksortAlgorithm(array, 0, array.Length - 1);
+			mergeSort.Sort(array);
 
 			// Assert
 			for (int i = 0; i < array.Length - 1; i++)
@@ -285,7 +287,6 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 
 			Assert.AreEqual(0, array.Length, "Array should contain no elements after filtering nulls.");
 		}
-
 
 	}
 }
