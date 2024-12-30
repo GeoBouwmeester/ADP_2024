@@ -2,7 +2,7 @@
 
 public class BinarySearchAlgorithm
 {
-    public static int BinarySearch(int[] array, int target)
+    public static int BinarySearch<T>(T[] array, T target) where T : IComparable<T>
     {
         int left = 0;
         int right = array.Length - 1;
@@ -11,25 +11,21 @@ public class BinarySearchAlgorithm
         {
             int mid = left + (right - left) / 2;
 
-            // Check if target is at mid
-            if (array[mid] == target)
+            if (array[mid].CompareTo(target) == 0)
             {
                 return mid;
             }
 
-            // If target is greater, ignore left half
-            if (array[mid] < target)
+            if (array[mid].CompareTo(target) < 0)
             {
                 left = mid + 1;
             }
             else
             {
-                // If target is smaller, ignore right half
                 right = mid - 1;
             }
         }
 
-        // Target not found
         return -1;
     }
 }

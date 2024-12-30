@@ -1,6 +1,5 @@
 ﻿using ADP_2024;
 using ADP_2024.InsertionSort;
-using ADP_2024.SelectionSort;
 using System.Diagnostics;
 
 namespace ADP_2024_Test.InsertionSort;
