@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "E:\\Code\\ADP_2024\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|e:\\code\\adp_2024\\adp_2024_test\\binarysearch\\binarysearchperformancetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|solutionrelative:adp_2024_test\\binarysearch\\binarysearchperformancetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|e:\\code\\adp_2024\\adp_2024_test\\selectionsort\\selectionsortperformancetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|solutionrelative:adp_2024_test\\selectionsort\\selectionsortperformancetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|e:\\code\\adp_2024\\adp_2024_test\\insertionsort\\insertionsortfunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|solutionrelative:adp_2024_test\\insertionsort\\insertionsortfunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|e:\\code\\adp_2024\\adp_2024_test\\selectionsort\\selectionsortfunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|solutionrelative:adp_2024_test\\selectionsort\\selectionsortfunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Code\\ADP_2024\\dataset_sorteren.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dataset_sorteren.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|e:\\code\\adp_2024\\adp_2024_test\\selectionsort\\selectionsortperformancetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|solutionrelative:adp_2024_test\\selectionsort\\selectionsortperformancetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 311,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,19 +39,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BinarySearchPerformanceTests.cs",
-              "DocumentMoniker": "E:\\Code\\ADP_2024\\ADP_2024_Test\\BinarySearch\\BinarySearchPerformanceTests.cs",
-              "RelativeDocumentMoniker": "ADP_2024_Test\\BinarySearch\\BinarySearchPerformanceTests.cs",
-              "ToolTip": "E:\\Code\\ADP_2024\\ADP_2024_Test\\BinarySearch\\BinarySearchPerformanceTests.cs*",
-              "RelativeToolTip": "ADP_2024_Test\\BinarySearch\\BinarySearchPerformanceTests.cs*",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAwwFoAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T14:22:41.577Z",
-              "EditorCaption": ""
             }
           ]
         },
@@ -69,41 +52,47 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SelectionSortPerformanceTests.cs",
-              "DocumentMoniker": "E:\\Code\\ADP_2024\\ADP_2024_Test\\SelectionSort\\SelectionSortPerformanceTests.cs",
-              "RelativeDocumentMoniker": "ADP_2024_Test\\SelectionSort\\SelectionSortPerformanceTests.cs",
-              "ToolTip": "E:\\Code\\ADP_2024\\ADP_2024_Test\\SelectionSort\\SelectionSortPerformanceTests.cs",
-              "RelativeToolTip": "ADP_2024_Test\\SelectionSort\\SelectionSortPerformanceTests.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAwwFIAAAAlAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "InsertionSortFunctionalTests.cs",
+              "DocumentMoniker": "E:\\Code\\ADP_2024\\ADP_2024_Test\\InsertionSort\\InsertionSortFunctionalTests.cs",
+              "RelativeDocumentMoniker": "ADP_2024_Test\\InsertionSort\\InsertionSortFunctionalTests.cs",
+              "ToolTip": "E:\\Code\\ADP_2024\\ADP_2024_Test\\InsertionSort\\InsertionSortFunctionalTests.cs",
+              "RelativeToolTip": "ADP_2024_Test\\InsertionSort\\InsertionSortFunctionalTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T14:42:23.19Z",
+              "WhenOpened": "2025-01-01T15:53:13.409Z",
               "EditorCaption": ""
-            },
+            }
+          ]
+        },
+        {
+          "DockedWidth": 246,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "SelectionSortFunctionalTests.cs",
               "DocumentMoniker": "E:\\Code\\ADP_2024\\ADP_2024_Test\\SelectionSort\\SelectionSortFunctionalTests.cs",
               "RelativeDocumentMoniker": "ADP_2024_Test\\SelectionSort\\SelectionSortFunctionalTests.cs",
               "ToolTip": "E:\\Code\\ADP_2024\\ADP_2024_Test\\SelectionSort\\SelectionSortFunctionalTests.cs",
               "RelativeToolTip": "ADP_2024_Test\\SelectionSort\\SelectionSortFunctionalTests.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowC8AAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAO8AAAAAAAAAAADwvxYBAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T19:47:17.539Z",
+              "WhenOpened": "2025-01-01T15:54:01.66Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "dataset_sorteren.json",
-              "DocumentMoniker": "E:\\Code\\ADP_2024\\dataset_sorteren.json",
-              "RelativeDocumentMoniker": "dataset_sorteren.json",
-              "ToolTip": "E:\\Code\\ADP_2024\\dataset_sorteren.json",
-              "RelativeToolTip": "dataset_sorteren.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALgHAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-30T19:49:29.118Z",
+              "DocumentIndex": 2,
+              "Title": "SelectionSortPerformanceTests.cs",
+              "DocumentMoniker": "E:\\Code\\ADP_2024\\ADP_2024_Test\\SelectionSort\\SelectionSortPerformanceTests.cs",
+              "RelativeDocumentMoniker": "ADP_2024_Test\\SelectionSort\\SelectionSortPerformanceTests.cs",
+              "ToolTip": "E:\\Code\\ADP_2024\\ADP_2024_Test\\SelectionSort\\SelectionSortPerformanceTests.cs",
+              "RelativeToolTip": "ADP_2024_Test\\SelectionSort\\SelectionSortPerformanceTests.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAwwGIAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T14:42:23.19Z",
               "EditorCaption": ""
             }
           ]
