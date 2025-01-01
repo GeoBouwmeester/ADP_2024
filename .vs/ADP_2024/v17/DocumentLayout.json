@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "E:\\Code\\ADP_2024\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|e:\\code\\adp_2024\\adp_2024_test\\binarysearch\\binarysearchfunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|solutionrelative:adp_2024_test\\binarysearch\\binarysearchfunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|e:\\code\\adp_2024\\adp_2024_test\\binarysearch\\binarysearchperformancetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|solutionrelative:adp_2024_test\\binarysearch\\binarysearchperformancetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Code\\ADP_2024\\dataset_sorteren.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dataset_sorteren.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|e:\\code\\adp_2024\\adp_2024_test\\selectionsort\\selectionsortperformancetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|solutionrelative:adp_2024_test\\selectionsort\\selectionsortperformancetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|e:\\code\\adp_2024\\adp_2024_test\\selectionsort\\selectionsortfunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4E96D85-F132-4135-AA59-BD3A6F0E2AA8}|ADP_2024_Test\\ADP_2024_Test.csproj|solutionrelative:adp_2024_test\\selectionsort\\selectionsortfunctionaltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD6382FE-C2D5-483B-9924-AFBAC42CB136}|ADP_2024\\ADP_2024.csproj|e:\\code\\adp_2024\\adp_2024\\binarysearch\\binarysearchalgorithm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD6382FE-C2D5-483B-9924-AFBAC42CB136}|ADP_2024\\ADP_2024.csproj|solutionrelative:adp_2024\\binarysearch\\binarysearchalgorithm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Code\\ADP_2024\\dataset_sorteren.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dataset_sorteren.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,7 +25,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 283,
+          "DockedWidth": 311,
           "SelectedChildIndex": 4,
           "Children": [
             {
@@ -47,25 +47,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BinarySearchFunctionalTests.cs",
-              "DocumentMoniker": "E:\\Code\\ADP_2024\\ADP_2024_Test\\BinarySearch\\BinarySearchFunctionalTests.cs",
-              "RelativeDocumentMoniker": "ADP_2024_Test\\BinarySearch\\BinarySearchFunctionalTests.cs",
-              "ToolTip": "E:\\Code\\ADP_2024\\ADP_2024_Test\\BinarySearch\\BinarySearchFunctionalTests.cs",
-              "RelativeToolTip": "ADP_2024_Test\\BinarySearch\\BinarySearchFunctionalTests.cs",
-              "ViewState": "AgIAAL0AAAAAAAAAAAAAAOIAAAABAAAAAAAAAA==",
+              "Title": "BinarySearchPerformanceTests.cs",
+              "DocumentMoniker": "E:\\Code\\ADP_2024\\ADP_2024_Test\\BinarySearch\\BinarySearchPerformanceTests.cs",
+              "RelativeDocumentMoniker": "ADP_2024_Test\\BinarySearch\\BinarySearchPerformanceTests.cs",
+              "ToolTip": "E:\\Code\\ADP_2024\\ADP_2024_Test\\BinarySearch\\BinarySearchPerformanceTests.cs*",
+              "RelativeToolTip": "ADP_2024_Test\\BinarySearch\\BinarySearchPerformanceTests.cs*",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAwwFoAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T19:46:53.466Z",
+              "WhenOpened": "2025-01-01T14:22:41.577Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 274,
-          "SelectedChildIndex": 2,
+          "DockedWidth": 246,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SelectionSortPerformanceTests.cs",
+              "DocumentMoniker": "E:\\Code\\ADP_2024\\ADP_2024_Test\\SelectionSort\\SelectionSortPerformanceTests.cs",
+              "RelativeDocumentMoniker": "ADP_2024_Test\\SelectionSort\\SelectionSortPerformanceTests.cs",
+              "ToolTip": "E:\\Code\\ADP_2024\\ADP_2024_Test\\SelectionSort\\SelectionSortPerformanceTests.cs",
+              "RelativeToolTip": "ADP_2024_Test\\SelectionSort\\SelectionSortPerformanceTests.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAwwFIAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T14:42:23.19Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -75,35 +88,22 @@
               "RelativeDocumentMoniker": "ADP_2024_Test\\SelectionSort\\SelectionSortFunctionalTests.cs",
               "ToolTip": "E:\\Code\\ADP_2024\\ADP_2024_Test\\SelectionSort\\SelectionSortFunctionalTests.cs",
               "RelativeToolTip": "ADP_2024_Test\\SelectionSort\\SelectionSortFunctionalTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowC8AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-30T19:47:17.539Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "dataset_sorteren.json",
               "DocumentMoniker": "E:\\Code\\ADP_2024\\dataset_sorteren.json",
               "RelativeDocumentMoniker": "dataset_sorteren.json",
               "ToolTip": "E:\\Code\\ADP_2024\\dataset_sorteren.json",
               "RelativeToolTip": "dataset_sorteren.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKkDAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALgHAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-12-30T19:49:29.118Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BinarySearchAlgorithm.cs",
-              "DocumentMoniker": "E:\\Code\\ADP_2024\\ADP_2024\\BinarySearch\\BinarySearchAlgorithm.cs",
-              "RelativeDocumentMoniker": "ADP_2024\\BinarySearch\\BinarySearchAlgorithm.cs",
-              "ToolTip": "E:\\Code\\ADP_2024\\ADP_2024\\BinarySearch\\BinarySearchAlgorithm.cs",
-              "RelativeToolTip": "ADP_2024\\BinarySearch\\BinarySearchAlgorithm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T20:15:29.166Z",
               "EditorCaption": ""
             }
           ]
