@@ -7,8 +7,6 @@ namespace ADP_2024_Test.QuickSortAlgorithm
 	[TestClass]
 	public sealed class QuickSortPerformanceTests
 	{
-		public required DatasetReader reader;
-
 		// Since we are using a median-of-three strategy for pivot selection,  
 		// the outcomes in the worst case or average case can differ slightly.  
 		// For instance, selecting a pivot that places all items on one side  
