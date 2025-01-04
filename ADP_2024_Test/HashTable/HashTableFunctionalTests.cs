@@ -7,12 +7,12 @@ namespace ADP_2024_Test.HashTable
 	[TestClass]
 	public sealed class HashTableFunctionalTests
 	{
-		public required HashingDatasetReader reader;
+		public required DatasetReader reader;
 
 		[TestInitialize]
 		public void SetUp()
 		{
-			reader = new HashingDatasetReader();
+			reader = new DatasetReader();
 		}
 
 		[TestMethod]
@@ -22,7 +22,7 @@ namespace ADP_2024_Test.HashTable
 			var hashTable = new HashTable<string, List<int>>();
 
 			// Act
-			foreach (var entry in reader.hashtabelsleutelswaardes)
+			foreach (var entry in reader.HashingDatasets.hashtabelsleutelswaardes)
 			{
 				hashTable.Insert(entry.Key, entry.Value);
 				Console.WriteLine($"Inserted - Key: {entry.Key}, Value: [{string.Join(", ", entry.Value)}]");
@@ -32,14 +32,14 @@ namespace ADP_2024_Test.HashTable
 			Console.WriteLine("-------------------");
 
 			// Assert
-			foreach (var entry in reader.hashtabelsleutelswaardes)
+			foreach (var entry in reader.HashingDatasets.hashtabelsleutelswaardes)
 			{
 				var result = hashTable.Get(entry.Key);
 				Console.WriteLine($"Key: {entry.Key}, Value: [{string.Join(", ", result)}]");
 				CollectionAssert.AreEqual(entry.Value, result, $"The value for key '{entry.Key}' should match the dataset.");
 			}
 			Console.WriteLine($"\nTotal size: {hashTable.Size()}");
-			Assert.AreEqual(reader.hashtabelsleutelswaardes.Count, hashTable.Size());
+			Assert.AreEqual(reader.HashingDatasets.hashtabelsleutelswaardes.Count, hashTable.Size());
 		}
 
 		[TestMethod]
@@ -47,13 +47,13 @@ namespace ADP_2024_Test.HashTable
 		{
 			var hashTable = new HashTable<string, List<int>>();
 
-			foreach (var entry in reader.hashtabelsleutelswaardes)
+			foreach (var entry in reader.HashingDatasets.hashtabelsleutelswaardes)
 			{
 				hashTable.Insert(entry.Key, entry.Value);
 			}
 
-			var keyToTest = reader.hashtabelsleutelswaardes.First().Key; 
-			var expectedValue = reader.hashtabelsleutelswaardes[keyToTest];
+			var keyToTest = reader.HashingDatasets.hashtabelsleutelswaardes.First().Key; 
+			var expectedValue = reader.HashingDatasets.hashtabelsleutelswaardes[keyToTest];
 			var result = hashTable.Get(keyToTest);
 
 
@@ -66,17 +66,17 @@ namespace ADP_2024_Test.HashTable
 		{
 			var hashTable = new HashTable<string, List<int>>();
 
-			foreach (var entry in reader.hashtabelsleutelswaardes)
+			foreach (var entry in reader.HashingDatasets.hashtabelsleutelswaardes)
 			{
 				hashTable.Insert(entry.Key, entry.Value);
 			}
 
-			var keyToDelete = reader.hashtabelsleutelswaardes.First().Key; 
+			var keyToDelete = reader.HashingDatasets.hashtabelsleutelswaardes.First().Key; 
 			hashTable.Delete(keyToDelete);
 
 			Assert.ThrowsException<KeyNotFoundException>(() => hashTable.Get(keyToDelete), $"The key '{keyToDelete}' should not exist after deletion.");
 
-			foreach (var entry in reader.hashtabelsleutelswaardes.Where(e => e.Key != keyToDelete))
+			foreach (var entry in reader.HashingDatasets.hashtabelsleutelswaardes.Where(e => e.Key != keyToDelete))
 			{
 				var result = hashTable.Get(entry.Key);
 				CollectionAssert.AreEqual(entry.Value, result, $"The value for key '{entry.Key}' should remain unchanged.");
@@ -88,7 +88,7 @@ namespace ADP_2024_Test.HashTable
 		{
 			var hashTable = new HashTable<string, List<int>>();
 
-			foreach (var entry in reader.hashtabelsleutelswaardes)
+			foreach (var entry in reader.HashingDatasets.hashtabelsleutelswaardes)
 			{
 				hashTable.Insert(entry.Key, entry.Value);
 			}
