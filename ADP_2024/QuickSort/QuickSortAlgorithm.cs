@@ -1,15 +1,14 @@
-﻿namespace ADP_2024.SortingAlgorithms
-{ 
-	public class QuickSort
+﻿namespace ADP_2024.QuickSort;
+
+	public static class QuickSortAlgorithm<T> where T : IComparable<T>
 	{
-		public void QuicksortAlgorithm<T>(T[] array, int left, int right) where T : IComparable<T>
+		public static void Quicksort(T[] array, int left, int right)
 		{
 			if (left >= right)
 				return;
 
 			int i = left;
 			int j = right;
-
 			// Determine the pivot using the median of three
 			int mid = left + (right - left) / 2;
 			T pivot = MedianOfThree(array, left, mid, right);
@@ -18,10 +17,8 @@
 			{
 				while (array[i].CompareTo(pivot) < 0)
 					i++;
-
 				while (array[j].CompareTo(pivot) > 0)
 					j--;
-
 				if (i <= j)
 				{
 					Swap(array, i, j);
@@ -31,13 +28,12 @@
 			}
 
 			if (left < j)
-				QuicksortAlgorithm(array, left, j);
-
+				Quicksort(array, left, j);
 			if (i < right)
-				QuicksortAlgorithm(array, i, right);
+				Quicksort(array, i, right);
 		}
 
-		public T MedianOfThree<T>(T[] array, int left, int mid, int right) where T : IComparable<T>
+		private static T MedianOfThree(T[] array, int left, int mid, int right)
 		{
 			T a = array[left];
 			T b = array[mid];
@@ -52,11 +48,10 @@
 				return c; // c is the median
 		}
 
-		public void Swap<T>(T[] array, int i, int j)
+		private static void Swap(T[] array, int i, int j)
 		{
 			T temp = array[i];
 			array[i] = array[j];
 			array[j] = temp;
 		}
 	}
-}
