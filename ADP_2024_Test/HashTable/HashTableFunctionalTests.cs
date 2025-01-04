@@ -52,7 +52,7 @@ namespace ADP_2024_Test.HashTable
 				hashTable.Insert(entry.Key, entry.Value);
 			}
 
-			var keyToTest = reader.HashingDatasets.hashtabelsleutelswaardes.First().Key; 
+			var keyToTest = reader.HashingDatasets.hashtabelsleutelswaardes.First().Key;
 			var expectedValue = reader.HashingDatasets.hashtabelsleutelswaardes[keyToTest];
 			var result = hashTable.Get(keyToTest);
 
@@ -71,7 +71,7 @@ namespace ADP_2024_Test.HashTable
 				hashTable.Insert(entry.Key, entry.Value);
 			}
 
-			var keyToDelete = reader.HashingDatasets.hashtabelsleutelswaardes.First().Key; 
+			var keyToDelete = reader.HashingDatasets.hashtabelsleutelswaardes.First().Key;
 			hashTable.Delete(keyToDelete);
 
 			Assert.ThrowsException<KeyNotFoundException>(() => hashTable.Get(keyToDelete), $"The key '{keyToDelete}' should not exist after deletion.");
@@ -93,7 +93,7 @@ namespace ADP_2024_Test.HashTable
 				hashTable.Insert(entry.Key, entry.Value);
 			}
 
-			var newValue = new List<int> { 42 }; 
+			var newValue = new List<int> { 42 };
 			hashTable.Update("a", newValue);
 
 			var result = hashTable.Get("a");
