@@ -6,7 +6,10 @@ namespace ADP_2024;
 public class DatasetReader
 {
     private const string DATASET_PATH = "../../../../dataset_sorteren.json";
+    private const string GRAPH_DATASET_PATH = "../../../../dataset_grafen.json";
+
     private Datasets Datasets { get; init; }
+    public GraphDatasets GraphDatasets { get; init; }
 
     public int[] LijstAflopend2 => Datasets.lijst_aflopend_2;
     public int[] LijstOplopend2 => Datasets.lijst_oplopend_2;
@@ -34,6 +37,7 @@ public class DatasetReader
     public DatasetReader()
     {
         Datasets = Read();
+        GraphDatasets = ReadGraphJson();
     }
 
     private static Datasets Read()
@@ -43,5 +47,14 @@ public class DatasetReader
         string json = r.ReadToEnd();
 
         return JsonConvert.DeserializeObject<Datasets>(json)!;
+    }
+
+    private static GraphDatasets ReadGraphJson()
+    {
+        using StreamReader r = new(GRAPH_DATASET_PATH);
+
+        string json = r.ReadToEnd();
+
+        return JsonConvert.DeserializeObject<GraphDatasets>(json)!;
     }
 }
