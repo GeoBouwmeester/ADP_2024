@@ -38,11 +38,12 @@ public class SelectionSortPerformanceTests
     |--------------------------------|
     | N          | Time              |
     |--------------------------------|
-    | 10         | 00:00:00.0000018  |
-    | 100        | 00:00:00.0000185  |
-    | 1000       | 00:00:00.0017769  |
-    | 10_000     | 00:00:00.1757838  |
+    | 10         | 00:00:00.0000015  |
+    | 100        | 00:00:00.0000235  |
+    | 1000       | 00:00:00.0020015  |
+    | 10_000     | 00:00:00.1809969  |
     |--------------------------------|
+    1. Quadratic time complexity
     */
     [TestMethod]
     [DataRow(10, 10)]
@@ -52,26 +53,26 @@ public class SelectionSortPerformanceTests
     public void TestWillekeurig(int amount, int expectedAmount)
     {
         // Arrange
-        var array = GenerateRandomArrayWithoutDuplicates(amount, 1, amount);
+        var iterations = 100;
 
-        // Warm-up
-        int[] newArray = new int[array.Length];
-        Array.Copy(array, newArray, array.Length);
-        SelectionSortAlgorithm.SelectionSort(newArray);
-
-        var watch = Stopwatch.StartNew();
+        Stopwatch stopwatch = new();
 
         // Act
-        SelectionSortAlgorithm.SelectionSort(array);
+        for (int i = 0; i < iterations; i++)
+        {
+            var array = GenerateRandomArrayWithoutDuplicates(amount, 1, amount);
+
+            stopwatch.Start();
+
+            SelectionSortAlgorithm.SelectionSort(array);
+
+            stopwatch.Stop();
+        }
 
         // Assert
-        watch.Stop();
+        stopwatch.Stop();
 
-        var elapsedMs = watch.Elapsed;
-
-        Console.WriteLine(elapsedMs);
-
-        Assert.AreEqual(expectedAmount, array.Length);
+        Console.WriteLine(TimeSpan.FromTicks(stopwatch.ElapsedTicks / iterations));
     }
 
     /*
@@ -79,11 +80,12 @@ public class SelectionSortPerformanceTests
     |--------------------------------|
     | N          | Time              |
     |--------------------------------|
-    | 10         | 00:00:00.0000023  |
-    | 100        | 00:00:00.0000282  |
-    | 1000       | 00:00:00.0025097  |
+    | 10         | 00:00:00.0000002  |
+    | 100        | 00:00:00.0000209  |
+    | 1000       | 00:00:00.0019453  |
     | 10_000     | 00:00:00.1857489  |
     |--------------------------------|
+    1. Quadratic time complexity
     */
     [TestMethod]
     [DataRow(10, 10)]
@@ -93,27 +95,27 @@ public class SelectionSortPerformanceTests
     public void TestOplopend(int amount, int expectedAmount)
     {
         // Arrange
-        var array = GenerateRandomArrayWithoutDuplicates(amount, 1, amount);
+        var iterations = 100;
 
-        // Sort
-        SelectionSortAlgorithm.SelectionSort(array);
-
-        // Warm-up
-        SelectionSortAlgorithm.SelectionSort(array);
-
-        var watch = Stopwatch.StartNew();
+        Stopwatch stopwatch = new();
 
         // Act
-        SelectionSortAlgorithm.SelectionSort(array);
+        for (int i = 0; i < iterations; i++)
+        {
+            var array = GenerateRandomArrayWithoutDuplicates(amount, 1, amount);
+
+            // Sort
+            SelectionSortAlgorithm.SelectionSort(array);
+
+            stopwatch.Start();
+
+            SelectionSortAlgorithm.SelectionSort(array);
+
+            stopwatch.Stop();
+        }
 
         // Assert
-        watch.Stop();
-
-        var elapsedMs = watch.Elapsed;
-
-        Console.WriteLine(elapsedMs);
-
-        Assert.AreEqual(expectedAmount, array.Length);
+        Console.WriteLine(TimeSpan.FromTicks(stopwatch.ElapsedTicks / iterations));
     }
 
     /*
@@ -126,6 +128,7 @@ public class SelectionSortPerformanceTests
     | 1000       | 00:00:00.0019168  |
     | 10_000     | 00:00:00.1885616  |
     |--------------------------------|
+    1. Quadratic time complexity
     */
     [TestMethod]
     [DataRow(10, 10)]
@@ -138,9 +141,6 @@ public class SelectionSortPerformanceTests
         var array = GenerateRandomArrayWithoutDuplicates(amount, 1, amount);
 
         int length = array.Length;
-
-        // Warm-up
-        SelectionSortAlgorithm.SelectionSort(array);
 
         // Reverse sort
         for (int i = 0; i < length - 1; i++)

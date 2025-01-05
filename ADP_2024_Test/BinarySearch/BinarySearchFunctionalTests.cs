@@ -224,4 +224,19 @@ public class BinarySearchFunctionalTests
         // Assert
         Assert.AreEqual(-1, index);
     }
+
+    [TestMethod]
+    public void TestStrings()
+    {
+        // Arrange
+        string[] array = {"a", "b", "c", "d", "e"};
+
+        var target = "b";
+
+        // Act
+        var index = BinarySearchAlgorithm.BinarySearch<string>(array, target);
+
+        // Assert
+        Assert.AreEqual(1, index);
+    }
 }

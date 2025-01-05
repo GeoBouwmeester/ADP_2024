@@ -20,14 +20,17 @@ public class BinarySearchPerformanceTests
     |-----------------------------------|
     | N             | Time              |
     |-----------------------------------|
-    | 1_000         | 00:00:00.0000029  |
-    | 10_000        | 00:00:00.0000017  |
-    | 100_000       | 00:00:00.0000002  |
-    | 1_000_000     | 00:00:00.0000003  |
-    | 10_000_000    | 00:00:00.0000005  |
-    | 100_000_000   | 00:00:00.0000004  |
-    | 1_000_000_000 | 00:00:00.0000010  |
+    | 1_000         | 00:00:00.0000000  |
+    | 10_000        | 00:00:00.0000001  |
+    | 100_000       | 00:00:00.0000001  |
+    | 1_000_000     | 00:00:00.0000001  |
+    | 10_000_000    | 00:00:00.0000001  |
+    | 100_000_000   | 00:00:00.0000001  |
+    | 1_000_000_000 | 00:00:00.0000002  |
     |-----------------------------------|
+    1. Difficult to measure efficient binary search implementation.
+    2. Slight increase can be observed
+    3. Time complexity: O(log N)
     */
     [TestMethod]
     [DataRow(1_000, 999)]
@@ -47,25 +50,25 @@ public class BinarySearchPerformanceTests
             array[i] = i;
         }
 
+        var iterations = 100_000;
+
         // Warm-up
         BinarySearchAlgorithm.BinarySearch(array, target);
 
         Stopwatch stopwatch = new();
 
-        stopwatch.Start();
-
         // Act
-        var index = BinarySearchAlgorithm.BinarySearch(array, target);
+        for (int i = 0; i < iterations; i++)
+        {
+            stopwatch.Start();
+
+            _ = BinarySearchAlgorithm.BinarySearch(array, target);
+
+            stopwatch.Stop();
+        }
 
         // Assert
-        stopwatch.Stop();
-
-        var elapsedMs = stopwatch.Elapsed;
-
-        Console.WriteLine(elapsedMs);
-
-        Assert.AreNotEqual(-1, index);
-        Assert.AreEqual(array[index], target);
+        Console.WriteLine(TimeSpan.FromTicks(stopwatch.ElapsedTicks / iterations));
     }
 
     /*
@@ -73,14 +76,16 @@ public class BinarySearchPerformanceTests
     |-----------------------------------|
     | N             | Time              |
     |-----------------------------------|
-    | 1_000         | 00:00:00.0000024  |
-    | 10_000        | 00:00:00.0000001  |
-    | 100_000       | 00:00:00.0000000  |
-    | 1_000_000     | 00:00:00.0000001  |
-    | 10_000_000    | 00:00:00.0000004  |
-    | 100_000_000   | 00:00:00.0000004  |
-    | 1_000_000_000 | 00:00:00.0000006  |
+    | 1_000         | 00:00:00.00       |
+    | 10_000        | 00:00:00.00       |
+    | 100_000       | 00:00:00.00       |
+    | 1_000_000     | 00:00:00.00       |
+    | 10_000_000    | 00:00:00.00       |
+    | 100_000_000   | 00:00:00.00       |
+    | 1_000_000_000 | 00:00:00.00       |
     |-----------------------------------|
+    1. Difficult to measure efficient binary search implementation.
+    2. No increase can be observed in this best case scenario where the target is found in constant time
     */
     [TestMethod]
     [DataRow(1_000, 499)]
@@ -100,25 +105,22 @@ public class BinarySearchPerformanceTests
             array[i] = i;
         }
 
-        // Warm-up
-        BinarySearchAlgorithm.BinarySearch(array, target);
+        var iterations = 100_000;
 
         Stopwatch stopwatch = new();
 
-        stopwatch.Start();
-
         // Act
-        var index = BinarySearchAlgorithm.BinarySearch(array, target);
+        for (int i = 0; i < iterations; i++)
+        {
+            stopwatch.Start();
+
+            _ = BinarySearchAlgorithm.BinarySearch(array, target);
+
+            stopwatch.Stop();
+        }
 
         // Assert
-        stopwatch.Stop();
-
-        var elapsedMs = stopwatch.Elapsed;
-
-        Console.WriteLine(elapsedMs);
-
-        Assert.AreNotEqual(-1, index);
-        Assert.AreEqual(array[index], target);
+        Console.WriteLine(TimeSpan.FromTicks(stopwatch.ElapsedTicks / iterations));
     }
 
     /*
@@ -126,14 +128,17 @@ public class BinarySearchPerformanceTests
     |-----------------------------------|
     | N             | Time              |
     |-----------------------------------|
-    | 1_000         | 00:00:00.0000016  |
-    | 10_000        | 00:00:00.0000002  |
-    | 100_000       | 00:00:00.0000002  |
-    | 1_000_000     | 00:00:00.0000002  |
-    | 10_000_000    | 00:00:00.0000006  |
-    | 100_000_000   | 00:00:00.0000002  |
-    | 1_000_000_000 | 00:00:00.0000008  |
+    | 1_000         | 00:00:00.00       |
+    | 10_000        | 00:00:00.0000001  |
+    | 100_000       | 00:00:00.0000001  |
+    | 1_000_000     | 00:00:00.0000001  |
+    | 10_000_000    | 00:00:00.0000001  |
+    | 100_000_000   | 00:00:00.0000001  |
+    | 1_000_000_000 | 00:00:00.0000002  |
     |-----------------------------------|
+    1. Difficult to measure efficient binary search implementation.
+    2. Slight increase can be observed
+    3. Time complexity: O(log N)
     */
     [TestMethod]
     [DataRow(1_000, 1)]
@@ -153,24 +158,74 @@ public class BinarySearchPerformanceTests
             array[i] = i;
         }
 
-        // Warm-up
-        BinarySearchAlgorithm.BinarySearch(array, target);
+        var iterations = 100_000;
 
         Stopwatch stopwatch = new();
 
-        stopwatch.Start();
-
         // Act
-        var index = BinarySearchAlgorithm.BinarySearch(array, target);
+        for (int i = 0; i < iterations; i++)
+        {
+            stopwatch.Start();
+
+            _ = BinarySearchAlgorithm.BinarySearch(array, target);
+
+            stopwatch.Stop();
+        }
 
         // Assert
-        stopwatch.Stop();
+        Console.WriteLine(TimeSpan.FromTicks(stopwatch.ElapsedTicks / iterations));
+    }
 
-        var elapsedMs = stopwatch.Elapsed;
+    /*
+    Execution time:
+    |-----------------------------------|
+    | N             | Time              |
+    |-----------------------------------|
+    | 1_000         | 00:00:00.00       |
+    | 10_000        | 00:00:00.00       |
+    | 100_000       | 00:00:00.0000001  |
+    | 1_000_000     | 00:00:00.0000001  |
+    | 10_000_000    | 00:00:00.0000001  |
+    | 100_000_000   | 00:00:00.0000001  |
+    | 1_000_000_000 | 00:00:00.0000003  |
+    |-----------------------------------|
+    1. Difficult to measure efficient binary search implementation.
+    2. Slight increase can be observed
+    3. Time complexity: O(log N)
+    */
+    [TestMethod]
+    [DataRow(1_000, 726)]
+    [DataRow(10_000, 4832)]
+    [DataRow(100_000, 73456)]
+    [DataRow(1_000_000, 528914)]
+    [DataRow(10_000_000, 7_362_419)]
+    [DataRow(100_000_000, 47_829_153)]
+    [DataRow(1_000_000_000, 682_417_395)]
+    public void TestRandomItem(int arraySize, int target)
+    {
+        // Arrange
+        int[] array = new int[arraySize];
 
-        Console.WriteLine(elapsedMs);
+        for (int i = 0; i < arraySize; i++)
+        {
+            array[i] = i;
+        }
 
-        Assert.AreNotEqual(-1, index);
-        Assert.AreEqual(array[index], target);
+        var iterations = 100_000;
+
+        Stopwatch stopwatch = new();
+
+        // Act
+        for (int i = 0; i < iterations; i++)
+        {
+            stopwatch.Start();
+
+            _ = BinarySearchAlgorithm.BinarySearch(array, target);
+
+            stopwatch.Stop();
+        }
+
+        // Assert
+        Console.WriteLine(TimeSpan.FromTicks(stopwatch.ElapsedTicks / iterations));
     }
 }

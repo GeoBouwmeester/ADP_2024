@@ -277,4 +277,19 @@ public class InsertionSortFunctionalTests
         Assert.AreEqual(array[0], 1);
         Assert.AreEqual(array[array.Length - 1], 3);
     }
+
+    [TestMethod]
+    public void TestString()
+    {
+        // Arrange
+        string[] array = { "f", "d", "c", "b", "a" };
+
+        // Act
+        InsertionSortAlgorithm.InsertionSort(array);
+
+        // Assert
+        Assert.AreEqual(5, array.Length);
+        Assert.AreEqual(array[0], "a");
+        Assert.AreEqual(array[array.Length - 1], "f");
+    }
 }

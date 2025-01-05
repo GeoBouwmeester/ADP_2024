@@ -43,6 +43,8 @@ public class InsertionSortPerformanceTests
     | 1000       | 00:00:00.0036414  |
     | 10_000     | 00:00:00.1052592  |
     |--------------------------------|
+    1. Quadratic time complexity
+    2. Average case scenario
     */
     [TestMethod]
     [DataRow(10, 10)]
@@ -52,26 +54,26 @@ public class InsertionSortPerformanceTests
     public void TestWillekeurig(int amount, int expectedAmount)
     {
         // Arrange
-        var array = GenerateRandomArrayWithoutDuplicates(amount, 1, amount);
+        var iterations = 100;
 
-        // Warm-up
-        int[] newArray = new int[array.Length];
-        Array.Copy(array, newArray, array.Length);
-        InsertionSortAlgorithm.InsertionSort(newArray);
-
-        var watch = Stopwatch.StartNew();
+        Stopwatch stopwatch = new();
 
         // Act
-        InsertionSortAlgorithm.InsertionSort(array);
+        for (int i = 0; i < iterations; i++)
+        {
+            var array = GenerateRandomArrayWithoutDuplicates(amount, 1, amount);
+
+            stopwatch.Start();
+
+            InsertionSortAlgorithm.InsertionSort(array);
+
+            stopwatch.Stop();
+        }
 
         // Assert
-        watch.Stop();
+        stopwatch.Stop();
 
-        var elapsedMs = watch.Elapsed;
-
-        Console.WriteLine(elapsedMs);
-
-        Assert.AreEqual(expectedAmount, array.Length);
+        Console.WriteLine(TimeSpan.FromTicks(stopwatch.ElapsedTicks / iterations));
     }
 
     /*
@@ -79,11 +81,13 @@ public class InsertionSortPerformanceTests
     |--------------------------------|
     | N          | Time              |
     |--------------------------------|
-    | 10         | 00:00:00.0000013  |
-    | 100        | 00:00:00.0000006  |
-    | 1000       | 00:00:00.0000050  |
-    | 10_000     | 00:00:00.0000492  |
+    | 10         | 00:00:00.00       |
+    | 100        | 00:00:00.0000010  |
+    | 1000       | 00:00:00.0000052  |
+    | 10_000     | 00:00:00.0000500  |
     |--------------------------------|
+    1. Linear time complexity
+    2. Best case scenario 
     */
     [TestMethod]
     [DataRow(10, 10)]
@@ -93,27 +97,27 @@ public class InsertionSortPerformanceTests
     public void TestOplopend(int amount, int expectedAmount)
     {
         // Arrange
-        var array = GenerateRandomArrayWithoutDuplicates(amount, 1, amount);
+        var iterations = 100;
 
-        // Sort
-        InsertionSortAlgorithm.InsertionSort(array);
-
-        // Warm-up
-        InsertionSortAlgorithm.InsertionSort(array);
-
-        var watch = Stopwatch.StartNew();
+        Stopwatch stopwatch = new();
 
         // Act
-        InsertionSortAlgorithm.InsertionSort(array);
+        for (int i = 0; i < iterations; i++)
+        {
+            var array = GenerateRandomArrayWithoutDuplicates(amount, 1, amount);
+
+            // Sort
+            InsertionSortAlgorithm.InsertionSort(array);
+
+            stopwatch.Start();
+
+            InsertionSortAlgorithm.InsertionSort(array);
+
+            stopwatch.Stop();
+        }
 
         // Assert
-        watch.Stop();
-
-        var elapsedMs = watch.Elapsed;
-
-        Console.WriteLine(elapsedMs);
-
-        Assert.AreEqual(expectedAmount, array.Length);
+        Console.WriteLine(TimeSpan.FromTicks(stopwatch.ElapsedTicks / iterations));
     }
 
     /*
@@ -121,11 +125,13 @@ public class InsertionSortPerformanceTests
     |--------------------------------|
     | N          | Time              |
     |--------------------------------|
-    | 10         | 00:00:00.0000014  |
-    | 100        | 00:00:00.0000207  |
-    | 1000       | 00:00:00.0020168  |
-    | 10_000     | 00:00:00.1994910  |
+    | 10         | 00:00:00.0000013  |
+    | 100        | 00:00:00.0000215  |
+    | 1000       | 00:00:00.0022582  |
+    | 10_000     | 00:00:00.2045180  |
     |--------------------------------|
+    1. Quadratic time complexity
+    2. Worst case scenario 
     */
     [TestMethod]
     [DataRow(10, 10)]
@@ -135,43 +141,43 @@ public class InsertionSortPerformanceTests
     public void TestAflopend(int amount, int expectedAmount)
     {
         // Arrange
-        var array = GenerateRandomArrayWithoutDuplicates(amount, 1, amount);
+        var iterations = 100;
 
-        int length = array.Length;
-
-        // Warm-up
-        InsertionSortAlgorithm.InsertionSort(array);
-
-        // Reverse sort
-        for (int i = 0; i < length - 1; i++)
-        {
-            int minIndex = i;
-
-            for (int j = i + 1; j < length; j++)
-            {
-                if (array[j].CompareTo(array[minIndex]) > 0)
-                {
-                    minIndex = j;
-                }
-            }
-
-            var temp = array[minIndex];
-            array[minIndex] = array[i];
-            array[i] = temp;
-        }
-
-        var watch = Stopwatch.StartNew();
+        Stopwatch stopwatch = new();
 
         // Act
-        InsertionSortAlgorithm.InsertionSort(array);
+        for (int i = 0; i < iterations; i++)
+        {
+            var array = GenerateRandomArrayWithoutDuplicates(amount, 1, amount);
+
+            int length = array.Length;
+
+            // Reverse sort
+            for (int x = 0; x < length - 1; x++)
+            {
+                int minIndex = x;
+
+                for (int y = x + 1; y < length; y++)
+                {
+                    if (array[y].CompareTo(array[minIndex]) > 0)
+                    {
+                        minIndex = y;
+                    }
+                }
+
+                var temp = array[minIndex];
+                array[minIndex] = array[x];
+                array[x] = temp;
+            }
+
+            stopwatch.Start();
+
+            InsertionSortAlgorithm.InsertionSort(array);
+
+            stopwatch.Stop();
+        }
 
         // Assert
-        watch.Stop();
-
-        var elapsedMs = watch.Elapsed;
-
-        Console.WriteLine(elapsedMs);
-
-        Assert.AreEqual(expectedAmount, array.Length);
+        Console.WriteLine(TimeSpan.FromTicks(stopwatch.ElapsedTicks / iterations));
     }
 }
