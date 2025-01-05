@@ -107,77 +107,77 @@ public class BinarySearchFunctionalTests
         Assert.AreEqual(-1, index);
     }
 
-    //[TestMethod]
-    //public void TestLijstLeeg0()
-    //{
-    //    // Arrange
-    //    var array = reader.LijstLeeg0;
+    [TestMethod]
+    public void TestLijstLeeg0()
+    {
+        // Arrange
+        var array = reader.LijstLeeg0
+            .Where(value => value != null)
+            .Cast<int>()
+            .ToArray();
 
-    //    int[] newArray = new int[array.Length];
-    //    Array.Copy(array, newArray, array.Length);
+        var search = 0;
 
-    //    var search = 0;
+        // Act
+        var index = BinarySearchAlgorithm.BinarySearch(array, search);
 
-    //    // Act
-    //    var index = BinarySearchAlgorithm.BinarySearch(newArray, search);
+        // Assert
+        Assert.AreEqual(-1, index);
+    }
 
-    //    // Assert
-    //    Assert.AreEqual(-1, index);
-    //}
+    [TestMethod]
+    public void TestLijstNull1()
+    {
+        // Arrange
+        var array = reader.LijstNull1
+            .Where(value => value != null)
+            .Cast<int>()
+            .ToArray();
 
-    //[TestMethod]
-    //public void TestLijstNull1()
-    //{
-    //    // Arrange
-    //    var array = reader.LijstNull1;
+        var search = 0;
 
-    //    int[] newArray = new int[array.Length].ToArray();
-    //    Array.Copy(array, newArray, array.Length);
+        // Act
+        var index = BinarySearchAlgorithm.BinarySearch(array, search);
 
-    //    var search = 0;
+        // Assert
+        Assert.AreEqual(-1, index);
+    }
 
-    //    // Act
-    //    var index = BinarySearchAlgorithm.BinarySearch(newArray, search);
+    [TestMethod]
+    public void TestLijstNull3()
+    {
+        // Arrange
+        var array = reader.LijstNull3
+            .Where(value => value != null)
+            .Cast<int>()
+            .ToArray();
 
-    //    // Assert
-    //    Assert.AreEqual(-1, index);
-    //}
+        var search = 0;
 
-    //[TestMethod]
-    //public void TestLijstNull3()
-    //{
-    //    // Arrange
-    //    var array = reader.LijstNull3;
+        // Act
+        var index = BinarySearchAlgorithm.BinarySearch(array, search);
 
-    //    int[] newArray = new int[array.Length].ToArray();
-    //    Array.Copy(array, newArray, array.Length);
+        // Assert
+        Assert.AreEqual(-1, index);
+    }
 
-    //    var search = 0;
+    [TestMethod]
+    public void TestLijstOnsorteerbaar3()
+    {
+        // Arrange
+        var array = reader.LijstOnsorteerbaar3
+            .Where(value => value.GetType() == typeof(Int64))
+            .Select(value => (int)(long)value)
+            .ToArray();
 
-    //    // Act
-    //    var index = BinarySearchAlgorithm.BinarySearch(newArray, search);
+        var search = 0;
 
-    //    // Assert
-    //    Assert.AreEqual(-1, index);
-    //}
+        // Act
+        var index = BinarySearchAlgorithm.BinarySearch(array, search);
 
-    //[TestMethod]
-    //public void TestLijstOnsorteerbaar3()
-    //{
-    //    // Arrange
-    //    var array = reader.LijstOnsorteerbaar3;
-
-    //    int[] newArray = new int[array.Length].ToArray();
-    //    Array.Copy(array, newArray, array.Length);
-
-    //    var search = 0;
-
-    //    // Act
-    //    var index = BinarySearchAlgorithm.BinarySearch(newArray, search);
-
-    //    // Assert
-    //    Assert.AreEqual(-1, index);
-    //}
+        // Assert
+        Assert.AreEqual(-1, index);
+    }
 
     [TestMethod]
     public void TestLijstOplopend10000()
