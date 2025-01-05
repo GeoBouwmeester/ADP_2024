@@ -1,6 +1,5 @@
 ﻿using System.Data;
 using System.Diagnostics;
-using System.Reflection.PortableExecutable;
 using ADP_2024.HashTable;
 
 namespace ADP_2024_Test.HashTable
@@ -13,12 +12,12 @@ namespace ADP_2024_Test.HashTable
 		|-------------------------------|
 		| N         | Time              |
 		|-------------------------------|
-		| 10        | 00:00:00.0015770  |
-		| 100       | 00:00:00.0015823  |
-	    | 1000      | 00:00:00.0017034  |
-		| 10_000    | 00:00:00.0026005  |
-		| 100_000   | 00:00:00.0258723  |
-		| 1_000_000 | 00:00:00.1635523  |
+		| 10        | 00:00:00.0008930  |
+		| 100       | 00:00:00.0015748  |
+	    | 1000      | 00:00:00.0015388  |
+		| 10_000    | 00:00:00.0044010  |
+		| 100_000   | 00:00:00.0371929  |
+		| 1_000_000 | 00:00:00.2259849  |
 		|-------------------------------|
 		Comments on performance:
 		1. 
@@ -26,29 +25,31 @@ namespace ADP_2024_Test.HashTable
 		*/
 
 		[TestMethod]
-		[DataRow(10, 10)]       
-		[DataRow(100, 100)]      
-		[DataRow(1_000, 1_000)]  
-		[DataRow(10_000, 10_000)]  
-		[DataRow(100_000, 100_000)] 
-		[DataRow(1_000_000, 1_000_000)] 
-		public void TestHashTableInsertBestCase(int datasetSize, int initialCapacity)
+		[DataRow(10)]
+		[DataRow(100)]
+		[DataRow(1_000)]
+		[DataRow(10_000)]
+		[DataRow(100_000)]
+		[DataRow(1_000_000)]
+		public void TestHashTableInsert(int datasetSize)
 		{
 			// Arrange
-			var hashTable = new HashTable<int, int>(initialCapacity); 
+			var hashTable = new HashTable<int, int>();
 			var watch = Stopwatch.StartNew();
 
 			// Act
 			for (int i = 0; i < datasetSize; i++)
 			{
-				hashTable.Insert(i, i); 
+				hashTable.Insert(i, i);
 			}
 
 			watch.Stop();
-			Console.WriteLine($"Best Case Insertion Time for {datasetSize} elements (initial capacity {initialCapacity}): {watch.Elapsed}");
-			
+			var elapsedMs = watch.Elapsed;
+
+			Console.WriteLine(elapsedMs);
+
 			// Assert
-			Assert.AreEqual(datasetSize, hashTable.Size(), "The number of elements inserted does not match the dataset size.");
+			Assert.AreEqual(datasetSize, hashTable.Size());
 		}
 
 		/*
@@ -56,12 +57,12 @@ namespace ADP_2024_Test.HashTable
 		|-------------------------------|
 		| N         | Time              |
 		|-------------------------------|
-		| 10        | 00:00:00.0005948  |
-		| 100       | 00:00:00.0006435  |
-	    | 1000      | 00:00:00.0008192  |
-		| 10_000    | 00:00:00.0028369  |
-		| 100_000   | 00:00:00.0876553  |
-		| 1_000_000 | 00:00:00.8319953  |
+		| 10        | 00:00:00.0014497  |
+		| 100       | 00:00:00.0015517  |
+		| 1000      | 00:00:00.0011768  |
+		| 10_000    | 00:00:00.0043497  |
+		| 100_000   | 00:00:00.0334371  |
+		| 1_000_000 | 00:00:00.4044959  |
 		|-------------------------------|
 		Comments on performance:
 		1. 
@@ -69,32 +70,37 @@ namespace ADP_2024_Test.HashTable
 		*/
 
 		[TestMethod]
-		[DataRow(10)]       
-		[DataRow(100)]      
-		[DataRow(1_000)]    
-		[DataRow(10_000)]   
-		[DataRow(100_000)]  
-		[DataRow(1_000_000)] 
-		public void TestHashTableInsertNormalCase(int datasetSize)
+		[DataRow(10)]
+		[DataRow(100)]
+		[DataRow(1_000)]
+		[DataRow(10_000)]
+		[DataRow(100_000)]
+		[DataRow(1_000_000)]
+		public void TestHashTableGet(int datasetSize)
 		{
 			// Arrange
-			var hashTable = new HashTable<int, int>(); 
-			var random = new Random();
-			var watch = Stopwatch.StartNew();
-
-			// Act
+			var hashTable = new HashTable<int, int>();
 			for (int i = 0; i < datasetSize; i++)
 			{
-				hashTable.Insert(random.Next(), i);
+				hashTable.Insert(i, i);
+			}
+
+			var watch = Stopwatch.StartNew();
+
+			// Act & Assert
+			for (int i = 0; i < datasetSize; i++)
+			{
+				var value = hashTable.Get(i);
+				Assert.AreEqual(i, value, $"Get operation failed for key {i}.");
 			}
 
 			watch.Stop();
+			var elapsedMs = watch.Elapsed;
 
-			Console.WriteLine($"Normal Case Insertion Time for {datasetSize} elements: {watch.Elapsed}");
-			hashTable.Print();
+			Console.WriteLine(elapsedMs);
 
-			// Assert 
-			Assert.AreEqual(datasetSize, hashTable.Size(), "The number of elements inserted does not match the dataset size.");
+			// Assert
+			Assert.AreEqual(datasetSize, hashTable.Size());
 		}
 
 		/*
@@ -102,12 +108,12 @@ namespace ADP_2024_Test.HashTable
 		|-------------------------------|
 		| N         | Time              |
 		|-------------------------------|
-		| 10        | 00:00:00.0006578  |
-		| 100       | 00:00:00.0006917  |
-	    | 1000      | 00:00:00.0008080  |
-		| 10_000    | 00:00:00.0015051  |
-		| 100_000   | 00:00:00.0128756  |
-		| 1_000_000 | 00:00:00.0647388  |
+		| 10        | 00:00:00.0001955  |
+		| 100       | 00:00:00.0000175  |
+		| 1000      | 00:00:00.0001272  |
+		| 10_000    | 00:00:00.0017484  |
+		| 100_000   | 00:00:00.0088202  |
+		| 1_000_000 | 00:00:00.0909273  |
 		|-------------------------------|
 		Comments on performance:
 		1. 
@@ -115,32 +121,91 @@ namespace ADP_2024_Test.HashTable
 		*/
 
 		[TestMethod]
-		[DataRow(10, 16)]      
-		[DataRow(100, 32)]      
-		[DataRow(1_000, 64)]    
-		[DataRow(10_000, 128)]  
-		[DataRow(100_000, 256)] 
-		[DataRow(1_000_000, 512)] 
-		public void TestHashTableInsertWorstCase(int datasetSize, int initialCapacity)
+		[DataRow(10)]
+		[DataRow(100)]
+		[DataRow(1_000)]
+		[DataRow(10_000)]
+		[DataRow(100_000)]
+		[DataRow(1_000_000)]
+		public void TestHashTableDelete(int datasetSize)
 		{
 			// Arrange
-			var hashTable = new HashTable<int, int>(initialCapacity);
+			var hashTable = new HashTable<int, int>();
+			for (int i = 0; i < datasetSize; i++)
+			{
+				hashTable.Insert(i, i);
+			}
+
 			var watch = Stopwatch.StartNew();
 
 			// Act
 			for (int i = 0; i < datasetSize; i++)
 			{
-				hashTable.Insert(i, i);  
+				hashTable.Delete(i);
 			}
 
 			watch.Stop();
+			var elapsedMs = watch.Elapsed;
 
-			Console.WriteLine($"Worst Case Insertion Time for {datasetSize} elements (initial capacity {initialCapacity}): {watch.Elapsed}");
+			Console.WriteLine(elapsedMs);
 
-			hashTable.Print();
 			// Assert
-			Assert.AreEqual(datasetSize, hashTable.Size(), "The number of elements inserted does not match the dataset size.");
+			Assert.AreEqual(0, hashTable.Size());
 		}
 
+		/*
+		Execution time:
+		|-------------------------------|
+		| N         | Time              |
+		|-------------------------------|
+		| 10        | 00:00:00.0002310  |
+		| 100       | 00:00:00.0000106  |
+		| 1000      | 00:00:00.0001241  |
+		| 10_000    | 00:00:00.0013644  |
+		| 100_000   | 00:00:00.0088200  |
+		| 1_000_000 | 00:00:00.0896521  |
+		|-------------------------------|
+		Comments on performance:
+		1. 
+		2. 
+		*/
+
+		[TestMethod]
+		[DataRow(10)]
+		[DataRow(100)]
+		[DataRow(1_000)]
+		[DataRow(10_000)]
+		[DataRow(100_000)]
+		[DataRow(1_000_000)]
+		public void TestHashTableUpdate(int datasetSize)
+		{
+			// Arrange
+			var hashTable = new HashTable<int, int>();
+			for (int i = 0; i < datasetSize; i++)
+			{
+				hashTable.Insert(i, i);
+			}
+
+			var watch = Stopwatch.StartNew();
+
+			// Act
+			for (int i = 0; i < datasetSize; i++)
+			{
+				hashTable.Update(i, i + 1); 
+			}
+
+			watch.Stop();
+			var elapsedMs = watch.Elapsed;
+
+			Console.WriteLine(elapsedMs);
+
+			// Assert
+			for (int i = 0; i < datasetSize; i++)
+			{
+				var value = hashTable.Get(i);
+				Assert.AreEqual(i + 1, value, $"Update operation failed for key {i}.");
+			}
+			Assert.AreEqual(datasetSize, hashTable.Size());
+		}
 	}
 }

@@ -7,11 +7,13 @@ public class DatasetReader
 {
     private const string DATASET_PATH = "../../../../dataset_sorteren.json";
     private const string GRAPH_DATASET_PATH = "../../../../dataset_grafen.json";
+	private const string DATASET_PATH_HASHING = "../../../../dataset_hashing.json";
 
-    private Datasets Datasets { get; init; }
+	private Datasets Datasets { get; init; }
     public GraphDatasets GraphDatasets { get; init; }
+	public HashingDatasets HashingDatasets { get; init; }
 
-    public int[] LijstAflopend2 => Datasets.lijst_aflopend_2;
+	public int[] LijstAflopend2 => Datasets.lijst_aflopend_2;
     public int[] LijstOplopend2 => Datasets.lijst_oplopend_2;
     public float[] LijstFloat8001 => Datasets.lijst_float_8001;
     public int[] LijstGesorteerdAflopend3 => Datasets.lijst_gesorteerd_aflopend_3;
@@ -38,6 +40,7 @@ public class DatasetReader
     {
         Datasets = Read();
         GraphDatasets = ReadGraphJson();
+        HashingDatasets = ReadHashing();
     }
 
     private static Datasets Read()
@@ -57,4 +60,13 @@ public class DatasetReader
 
         return JsonConvert.DeserializeObject<GraphDatasets>(json)!;
     }
+
+	private static HashingDatasets ReadHashing()
+	{
+		using StreamReader r = new(DATASET_PATH_HASHING);
+
+		string json = r.ReadToEnd();
+
+		return JsonConvert.DeserializeObject<HashingDatasets>(json)!;
+	}
 }

@@ -1,147 +1,170 @@
 ﻿namespace ADP_2024.HashTable
 {
-	public class HashTable<K, V> 
+	public class HashTable<Key, Value>
 	{
-		private class Entry 
-		{ 
-			public K Key { get; set; }
-			public V Value { get; set; }
-			public bool IsDeleted { get; set; }
-			public Entry(K key, V value) 
-			{
-				Key = key;
-				Value = value;
-				IsDeleted = false;
-			}
+		private struct Bucket
+		{
+			public Key Key;
+			public Value Value;
+			public bool IsOccupied;
+			public bool IsDeleted;
 		}
 
-		private Entry[] table;
-		private int size;
-		private int capacity;
+		private Bucket[] buckets;
+		private int _capacity;
+		private int _count;
 
-		public HashTable(int capacity = 16) 
+		private const double LoadFactor = 0.75;
+
+		public HashTable(int initialCapacity = 16)
 		{
-			this.capacity = capacity;
-			table = new Entry[capacity];
-			size = 0;
+			_capacity = initialCapacity;
+			buckets = new Bucket[_capacity];
+			_count = 0;
 		}
 
-		private int Hash(K key)
+		private int Hash(Key key)
 		{
-			int hash = key.GetHashCode() % capacity;
-			return hash < 0 ? hash + capacity : hash; 
+			return (key.GetHashCode() & 0x7FFFFFFF) % _capacity;
 		}
 
-		public void Insert(K key, V value) 
+		public void Insert(Key key, Value value)
 		{
-			if (size >= capacity / 2) // Load factor > 0.5, resize the table
+			if (_count >= _capacity * LoadFactor)
 			{
 				Resize();
 			}
 
-			int index = Hash(key);
-			while (table[index] != null && !table[index].IsDeleted && !table[index].Key.Equals(key))
+			int index = FindBucket(key);
+			if (index == -1) // Bucket is empty or deleted
 			{
-				index = (index + 1) % capacity; // Linear probing
-			}
-
-			if (table[index] == null || table[index].IsDeleted)
-			{
-				size++;
-			}
-
-			table[index] = new Entry(key, value);
-		}
-
-		public V Get (K key) 
-		{
-			int index = Hash(key);
-			int start = index; 
-
-			while (table[index] != null)
-			{
-				if (!table[index].IsDeleted && table[index].Key.Equals(key))
+				// Find an available slot for insertion
+				for (int i = 0; i < _capacity; i++)
 				{
-					return table[index].Value;
+					int newIndex = (Hash(key) + i) % _capacity;
+					if (!buckets[newIndex].IsOccupied || buckets[newIndex].IsDeleted)
+					{
+						if (!buckets[newIndex].IsOccupied) _count++; 
+						buckets[newIndex].Key = key;
+						buckets[newIndex].Value = value;
+						buckets[newIndex].IsOccupied = true;
+						buckets[newIndex].IsDeleted = false;
+
+						return;
+					}
 				}
-
-				index = (index + 1) % capacity;
-				if (index == start) break; 
 			}
-
-			throw new KeyNotFoundException("Key not found in hash table.");
-		}
-		public void Delete(K key)
-		{
-			int index = Hash(key);
-			int start = index;
-
-			while (table[index] != null)
+			else // Update the value if the key already exists
 			{
-				if (!table[index].IsDeleted && table[index].Key.Equals(key))
-				{
-					table[index].IsDeleted = true;
-					size--;
-					return;
-				}
+				buckets[index].Value = value;
+			}
+		}
 
-				index = (index + 1) % capacity;
-				if (index == start) break;
+		public Value Get(Key key)
+		{
+			if (key == null) throw new ArgumentNullException(nameof(key));
+
+			int index = FindBucket(key);
+			if (index != -1)
+			{
+				if (buckets[index].IsDeleted)
+				{
+					throw new KeyNotFoundException($"Key '{key}' not found.");
+				}
+				return buckets[index].Value;
 			}
 
-			throw new KeyNotFoundException("Key not found in hash table.");
+			throw new KeyNotFoundException($"Key '{key}' not found.");
 		}
+
+		public bool Delete(Key key)
+		{
+			if (key == null) throw new ArgumentNullException(nameof(key));
+
+			int index = FindBucket(key);
+			if (index != -1)
+			{
+				buckets[index].IsDeleted = true;
+				buckets[index].IsOccupied = false;
+				_count--;
+				return true;
+			}
+
+			return false;
+		}
+
+		public bool Update(Key key, Value newValue)
+		{
+			if (key == null) throw new ArgumentNullException(nameof(key));
+
+			int index = FindBucket(key);
+			if (index != -1)
+			{
+				buckets[index].Value = newValue;
+				return true;
+			}
+
+			return false; 
+		}
+
 		private void Resize()
 		{
-			int newCapacity = capacity * 2;
-			Entry[] oldTable = table;
-			table = new Entry[newCapacity];
-			capacity = newCapacity;
-			size = 0;
+			int newCapacity = _capacity * 2;
+			var newBuckets = new Bucket[newCapacity];
+			var oldBuckets = buckets;
 
-			foreach (var entry in oldTable)
+			buckets = newBuckets;
+			_capacity = newCapacity;
+			_count = 0;
+
+			foreach (var bucket in oldBuckets)
 			{
-				if (entry != null && !entry.IsDeleted)
+				if (bucket.IsOccupied && !bucket.IsDeleted)
 				{
-					Insert(entry.Key, entry.Value);
+					Insert(bucket.Key, bucket.Value);
 				}
 			}
 		}
 
-		public void Update(K key, V newValue)
+		private int FindBucket(Key key)
 		{
-			int index = Hash(key);
-			int start = index;
-
-			while (table[index] != null)
+			int hash = Hash(key);
+			for (int i = 0; i < _capacity; i++)
 			{
-				if (!table[index].IsDeleted && table[index].Key.Equals(key))
+				int index = (hash + i) % _capacity;
+
+				if (!buckets[index].IsOccupied)
 				{
-					table[index].Value = newValue;
-					return;
+					return -1; // Return -1 if bucket is empty
 				}
-				index = (index + 1) % capacity;
-				if (index == start) break; 
+
+				if (buckets[index].IsOccupied && !buckets[index].IsDeleted && buckets[index].Key.Equals(key))
+				{
+					return index; // Return index of the found bucket
+				}
 			}
-			throw new KeyNotFoundException("Key not found in hash table.");
+
+			return -1; // Return -1 if the key was not found
 		}
-		public int Size()
-		{
-			return size;
-		}
-		public bool isEmpty()
-		{
-			return Size() == 0;
-		}
+
 		public void Print()
 		{
-			for (int i = 0; i < capacity; i++)
+			for (int i = 0; i < _capacity; i++)
 			{
-				if (table[i] != null && !table[i].IsDeleted)
+				if (buckets[i].IsOccupied && !buckets[i].IsDeleted)
 				{
-					Console.WriteLine($"Index {i}: Key = {table[i].Key}, Value = {table[i].Value}");
+					Console.WriteLine($"Index {i}: {buckets[i].Key} -> {buckets[i].Value}");
+				}
+				else
+				{
+					Console.WriteLine($"Index {i}: Empty");
 				}
 			}
+		}
+
+		public int Size()
+		{
+			return _count; 
 		}
 	}
 }
