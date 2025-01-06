@@ -26,13 +26,13 @@
 				int mid = (left + right) / 2;
 				if (right - left < threshold)
 				{
-					// Merge Sort for small arrays
+					
 					MergeSort(array, left, mid, temp);
 					MergeSort(array, mid + 1, right, temp);
 				}
 				else
 				{
-					// Parallel for large arrays
+					
 					Parallel.Invoke(
 						() => ParallelMergeSort(array, left, mid, temp),
 						() => ParallelMergeSort(array, mid + 1, right, temp)
