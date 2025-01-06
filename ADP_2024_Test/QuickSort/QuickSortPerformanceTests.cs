@@ -27,7 +27,6 @@ public sealed class QuickSortPerformanceTests
 	Comments on performance:
 	1. Normal case represents a dataset with elements in random order.
 	2. The time complexity for this scenario is O(n log n).
-	3. Execution time increases logarithmically relative to the dataset size.
 	*/
 
 	[TestMethod]
