@@ -36,9 +36,8 @@
 			}
 
 			int index = FindBucket(key);
-			if (index == -1) // Bucket is empty or deleted
+			if (index == -1) 
 			{
-				// Find an available slot for insertion
 				for (int i = 0; i < _capacity; i++)
 				{
 					int newIndex = (Hash(key) + i) % _capacity;
@@ -54,7 +53,7 @@
 					}
 				}
 			}
-			else // Update the value if the key already exists
+			else 
 			{
 				buckets[index].Value = value;
 			}
@@ -135,16 +134,16 @@
 
 				if (!buckets[index].IsOccupied)
 				{
-					return -1; // Return -1 if bucket is empty
+					return -1; 
 				}
 
 				if (buckets[index].IsOccupied && !buckets[index].IsDeleted && buckets[index].Key.Equals(key))
 				{
-					return index; // Return index of the found bucket
+					return index; 
 				}
 			}
 
-			return -1; // Return -1 if the key was not found
+			return -1; 
 		}
 
 		public void Print()
