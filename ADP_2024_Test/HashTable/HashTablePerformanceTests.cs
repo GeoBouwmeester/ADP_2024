@@ -20,8 +20,8 @@ namespace ADP_2024_Test.HashTable
 		| 1_000_000 | 00:00:00.2259849  |
 		|-------------------------------|
 		Comments on performance:
-		1. 
-		2. 
+		1. The average time complexity of the Insert operation in a hash table is O(1).
+		2. Collisions can slow down the time complexity to O(n).
 		*/
 
 		[TestMethod]
@@ -65,8 +65,7 @@ namespace ADP_2024_Test.HashTable
 		| 1_000_000 | 00:00:00.4044959  |
 		|-------------------------------|
 		Comments on performance:
-		1. 
-		2. 
+		1. The time complexity of the Get operation is O(1).
 		*/
 
 		[TestMethod]
@@ -115,9 +114,9 @@ namespace ADP_2024_Test.HashTable
 		| 100_000   | 00:00:00.0088202  |
 		| 1_000_000 | 00:00:00.0909273  |
 		|-------------------------------|
-		Comments on performance:
-		1. 
-		2. 
+		Comments on performance: 
+		1. The average time complexity of the Delete operation in a hash table is O(1).
+		2. Collisions can slow down the time complexity to O(n).
 		*/
 
 		[TestMethod]
@@ -166,8 +165,8 @@ namespace ADP_2024_Test.HashTable
 		| 1_000_000 | 00:00:00.0896521  |
 		|-------------------------------|
 		Comments on performance:
-		1. 
-		2. 
+		1. Time complexity of O(1) for most dataset sizes.
+		2. Collisions can slow down the time complexity to O(n).
 		*/
 
 		[TestMethod]

@@ -9,7 +9,7 @@
 
 			int i = left;
 			int j = right;
-			// Determine the pivot using the median of three
+			
 			int mid = left + (right - left) / 2;
 			T pivot = MedianOfThree(array, left, mid, right);
 
@@ -39,13 +39,13 @@
 			T b = array[mid];
 			T c = array[right];
 
-			// Compare and find the median value
+			
 			if ((a.CompareTo(b) > 0) ^ (a.CompareTo(c) > 0))
-				return a; // a is the median
+				return a;
 			else if ((b.CompareTo(a) > 0) ^ (b.CompareTo(c) > 0))
-				return b; // b is the median
+				return b;
 			else
-				return c; // c is the median
+				return c;
 		}
 
 		private static void Swap(T[] array, int i, int j)

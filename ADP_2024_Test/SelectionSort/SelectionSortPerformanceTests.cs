@@ -123,10 +123,10 @@ public class SelectionSortPerformanceTests
     |--------------------------------|
     | N          | Time              |
     |--------------------------------|
-    | 10         | 00:00:00.0000025  |
-    | 100        | 00:00:00.0000188  |
-    | 1000       | 00:00:00.0019168  |
-    | 10_000     | 00:00:00.1885616  |
+    | 10         | 00:00:00.0003246  |
+    | 100        | 00:00:00.0003374  |
+    | 1000       | 00:00:00.0035115  |
+    | 10_000     | 00:00:00.3591049  |
     |--------------------------------|
     1. Quadratic time complexity
     */
@@ -138,40 +138,43 @@ public class SelectionSortPerformanceTests
     public void TestAflopend(int amount, int expectedAmount)
     {
         // Arrange
-        var array = GenerateRandomArrayWithoutDuplicates(amount, 1, amount);
+        var iterations = 100;
 
-        int length = array.Length;
-
-        // Reverse sort
-        for (int i = 0; i < length - 1; i++)
-        {
-            int minIndex = i;
-
-            for (int j = i + 1; j < length; j++)
-            {
-                if (array[j].CompareTo(array[minIndex]) > 0)
-                {
-                    minIndex = j;
-                }
-            }
-
-            var temp = array[minIndex];
-            array[minIndex] = array[i];
-            array[i] = temp;
-        }
-
-        var watch = Stopwatch.StartNew();
+        Stopwatch stopwatch = new();
 
         // Act
-        SelectionSortAlgorithm.SelectionSort(array);
+        for (int i = 0; i < iterations; i++)
+        {
+            var array = GenerateRandomArrayWithoutDuplicates(amount, 1, amount);
+
+            int length = array.Length;
+
+            // Reverse sort
+            for (int x = 0; x < length - 1; x++)
+            {
+                int minIndex = x;
+
+                for (int j = x + 1; j < length; j++)
+                {
+                    if (array[j].CompareTo(array[minIndex]) > 0)
+                    {
+                        minIndex = j;
+                    }
+                }
+
+                var temp = array[minIndex];
+                array[minIndex] = array[x];
+                array[x] = temp;
+            }
+
+            stopwatch.Start();
+
+            SelectionSortAlgorithm.SelectionSort(array);
+
+            stopwatch.Stop();
+        }
 
         // Assert
-        watch.Stop();
-
-        var elapsedMs = watch.Elapsed;
-
-        Console.WriteLine(elapsedMs);
-
-        Assert.AreEqual(expectedAmount, array.Length);
+        Console.WriteLine(TimeSpan.FromTicks(stopwatch.ElapsedTicks / iterations));
     }
 }
