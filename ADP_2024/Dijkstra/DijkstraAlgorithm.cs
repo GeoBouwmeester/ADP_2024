@@ -28,27 +28,24 @@ public class DijkstraAlgorithm
         {
             Vertex currentVertex = priorityQueue.Dequeue();
 
-            if (currentVertex.Distance < int.MaxValue)
+            foreach (Edge edge in currentVertex.Edges)
             {
-                foreach (Edge edge in currentVertex.Edges)
+                if (edge.Weight < 0)
                 {
-                    if (edge.Weight < 0)
-                    {
-                        throw new InvalidOperationException("Graph contains negative edge weights, which cannot be handled by Dijkstra's algorithm.");
-                    }
+                    throw new InvalidOperationException("Graph contains negative edge weights, which cannot be handled by Dijkstra's algorithm.");
+                }
 
-                    Vertex neighbor = edge.Destination;
+                Vertex neighbor = edge.Destination;
 
-                    int newDistance = currentVertex.Distance + edge.Weight;
+                int newDistance = currentVertex.Distance + edge.Weight;
 
-                    if (newDistance < neighbor.Distance)
-                    {
-                        neighbor.Distance = newDistance;
+                if (newDistance < neighbor.Distance)
+                {
+                    neighbor.Distance = newDistance;
 
-                        neighbor.Previous = currentVertex;
+                    neighbor.Previous = currentVertex;
 
-                        priorityQueue.Enqueue(neighbor, newDistance);
-                    }
+                    priorityQueue.Enqueue(neighbor, newDistance);
                 }
             }
         }
