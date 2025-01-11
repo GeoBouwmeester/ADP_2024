@@ -67,6 +67,7 @@
 
 			while (i <= mid)
 				temp[k++] = array[i++];
+
 			while (j <= right)
 				temp[k++] = array[j++];
 
