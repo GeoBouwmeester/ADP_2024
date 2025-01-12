@@ -18,7 +18,7 @@
 
 		public HashTable(int initialCapacity = 13)
 		{
-			_capacity = initialCapacity;
+			_capacity = GetNextPrime(initialCapacity);
 			buckets = new Bucket[_capacity];
 			_count = 0;
 		}
@@ -108,21 +108,39 @@
 
 		private void Resize()
 		{
-			int newCapacity = Math.Max(1, _capacity * 2);
+    			int newCapacity = GetNextPrime(_capacity * 2);
 			var newBuckets = new Bucket[newCapacity];
-			var oldBuckets = buckets;
+   			var oldBuckets = buckets;
+ 
+   			buckets = newBuckets;
+    			_capacity = newCapacity;
+   			_count = 0;
+ 
+    			foreach (var bucket in oldBuckets)
+    			{
+        			if (bucket.IsOccupied && !bucket.IsDeleted)
+        			{
+            				Insert(bucket.Key, bucket.Value);
+        			}
+    			}
+		}
 
-			buckets = newBuckets;
-			_capacity = newCapacity;
-			_count = 0;
-
-			foreach (var bucket in oldBuckets)
-			{
-				if (bucket.IsOccupied && !bucket.IsDeleted)
-				{
-					Insert(bucket.Key, bucket.Value);
-				}
-			}
+  		private int GetNextPrime(int number)
+		{
+		if (number <= 2) return 2;
+    		if (number % 2 == 0) number++;
+    		while (!IsPrime(number)) number += 2;
+    		return number;
+		}
+ 
+		private bool IsPrime(int number)
+		{
+  		if (number < 2) return false;
+    		for (int i = 2; i <= Math.Sqrt(number); i++)
+    		{
+        	if (number % i == 0) return false;
+    		}
+   		 return true;
 		}
 
 		private int FindBucket(Key key)
