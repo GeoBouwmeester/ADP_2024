@@ -26,11 +26,12 @@ namespace ADP_2024_Test.HashTable
 				hashTable.Insert(entry.Key, entry.Value);
 			}
 
+			hashTable.Print();
+
 			// Assert
 			foreach (var entry in reader.HashingDatasets.hashtabelsleutelswaardes)
 			{
 				var result = hashTable.Get(entry.Key);
-				Console.WriteLine($"Key: {entry.Key}, Value: [{string.Join(", ", result)}]");
 				CollectionAssert.AreEqual(entry.Value, result, $"The value for key '{entry.Key}' should match the dataset.");
 			}
 			Assert.AreEqual(reader.HashingDatasets.hashtabelsleutelswaardes.Count, hashTable.Size());

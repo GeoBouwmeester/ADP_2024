@@ -35,30 +35,25 @@
 			return _root;
 		}
 
-		public int Height()
+		private Node<T> Insert(Node<T> node, T key)
 		{
-			return _root == null ? -1 : _root.Height;
-		}
-
-		private Node<T> Insert(Node<T> root, T key)
-		{
-			if (root == null)
+			if (node == null)
 			{
 				return new Node<T>(key);
 			}
-			else if (root.Key.CompareTo(key) > 0)
+			else if (node.Key.CompareTo(key) > 0)
 			{
-				root.Left = Insert(root.Left, key);
+				node.Left = Insert(node.Left, key);
 			}
-			else if (root.Key.CompareTo(key) < 0)
+			else if (node.Key.CompareTo(key) < 0)
 			{
-				root.Right = Insert(root.Right, key);
+				node.Right = Insert(node.Right, key);
 			}
 			else
 			{
 				throw new InvalidOperationException("Duplicate Key!");
 			}
-			return Rebalance(root);
+			return Rebalance(node);
 		}
 
 		private Node<T> Remove(Node<T> node, T key)

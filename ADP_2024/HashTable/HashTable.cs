@@ -16,7 +16,7 @@
 
 		private const double LoadFactor = 0.75;
 
-		public HashTable(int initialCapacity = 16)
+		public HashTable(int initialCapacity = 13)
 		{
 			_capacity = initialCapacity;
 			buckets = new Bucket[_capacity];
@@ -108,7 +108,7 @@
 
 		private void Resize()
 		{
-			int newCapacity = _capacity * 2;
+			int newCapacity = Math.Max(1, _capacity * 2);
 			var newBuckets = new Bucket[newCapacity];
 			var oldBuckets = buckets;
 
@@ -132,7 +132,7 @@
 			{
 				int index = (hash + i) % _capacity;
 
-				if (!buckets[index].IsOccupied)
+				if (!buckets[index].IsOccupied && !buckets[index].IsDeleted)
 				{
 					return -1; 
 				}
@@ -152,7 +152,14 @@
 			{
 				if (buckets[i].IsOccupied && !buckets[i].IsDeleted)
 				{
-					Console.WriteLine($"Index {i}: {buckets[i].Key} -> {buckets[i].Value}");
+					if (buckets[i].Value is List<int> listValue)
+					{
+						Console.WriteLine($"Index {i}: {buckets[i].Key} -> [{string.Join(", ", listValue)}]");
+					}
+					else
+					{
+						Console.WriteLine($"Index {i}: {buckets[i].Key} -> {buckets[i].Value}");
+					}
 				}
 				else
 				{
