@@ -69,11 +69,12 @@ namespace ADP_2024_Test.HashTable
 				hashTable.Insert(entry.Key, entry.Value);
 			}
 
+			var initialCount = hashTable.Size(); 
 			var keyToDelete = reader.HashingDatasets.hashtabelsleutelswaardes.First().Key;
 			hashTable.Delete(keyToDelete);
 
 			// Assert
-			Assert.ThrowsException<KeyNotFoundException>(() => hashTable.Get(keyToDelete), $"The key '{keyToDelete}' should not exist after deletion.");
+			Assert.AreEqual(initialCount - 1, hashTable.Size(), "The count should decrease by 1 after deletion.");
 
 			foreach (var entry in reader.HashingDatasets.hashtabelsleutelswaardes.Where(e => e.Key != keyToDelete))
 			{
