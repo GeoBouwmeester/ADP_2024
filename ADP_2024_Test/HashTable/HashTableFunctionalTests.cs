@@ -206,6 +206,32 @@ namespace ADP_2024_Test.HashTable
 			hashTable.Print();
 		}
 
+		[TestMethod]
+		public void TestLinearProbingZeroCapacity()
+		{
+			// Arrange
+			var hashTable = new HashTable<int, int>(0);
+
+			// Act 
+			hashTable.Insert(4, 10);
+			hashTable.Insert(8, 11);
+			hashTable.Insert(12, 12);
+
+			hashTable.Print();
+			Console.WriteLine();
+
+			// Assert
+			Assert.AreEqual(10, hashTable.Get(4));
+			Assert.AreEqual(11, hashTable.Get(8));
+			Assert.AreEqual(12, hashTable.Get(12));
+			Assert.AreEqual(3, hashTable.Size());
+
+			hashTable.Insert(32, 44);
+			Assert.AreEqual(44, hashTable.Get(32));
+			Assert.AreEqual(4, hashTable.Size());
+			hashTable.Print();
+		}
+
 
 	}
 }
